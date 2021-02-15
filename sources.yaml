@@ -1,602 +1,866 @@
-CCMI-1:
-    ACCESS-refC2:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/ACCESS/ACCESS-CCM/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    ACCESS-senC2fGHG:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/ACCESS/ACCESS-CCM/senC2fGHG/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    ACCESS-senC2fODS:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/ACCESS/ACCESS-CCM/senC2fODS/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    CCCma-CMAM-refC2:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CCCma/CMAM/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    CCCma-CMAM-senC2CH4rcp85:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CCCma/CMAM/senC2CH4rcp85/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    CCCma-CMAM-senC2fCH4:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CCCma/CMAM/senC2fCH4/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon 
-    CCCma-CMAM-senC2fGHG:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CCCma/CMAM/senC2fGHG/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    CCCma-CMAM-senC2fN2O:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CCCma/CMAM/senC2fN2O/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon 
-    CCCma-CMAM-senC2fODS:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CCCma/CMAM/senC2fODS/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    CCCma-CMAM-senC2rcp26:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CCCma/CMAM/senC2rcp26/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon 
-    CCCma-CMAM-senC2rcp45:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CCCma/CMAM/senC2rcp45/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    CCCma-CMAM-senC2rcp85:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CCCma/CMAM/senC2rcp85/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    CHASER-MIROC-ESM-refC2:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CHASER-MIROC-ESM/CHASER-MIROC-ESM/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    CHASER-MIROC-ESM-senC2fCH4:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CHASER-MIROC-ESM/CHASER-MIROC-ESM/senC2fCH4/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    CHASER-MIROC-ESM-senC2fEmis:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CHASER-MIROC-ESM/CHASER-MIROC-ESM/senC2fEmis/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    CHASER-MIROC-ESM-senC2fGHG:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CHASER-MIROC-ESM/CHASER-MIROC-ESM/senC2fGHG/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    CHASER-MIROC-ESM-senC2fN2O:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CHASER-MIROC-ESM/CHASER-MIROC-ESM/senC2fN2O/mon/atmos/monthly/r1i1p1/v1/toz/*nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    CHASER-MIROC-ESM-senC2fODS:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CHASER-MIROC-ESM/CHASER-MIROC-ESM/senC2fODS/mon/atmos/monthly/r1i1p1/v1/toz/*nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    CNRM-CERFACS-CNRM-CM5-3-refC2:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CNRM-CERFACS/CNRM-CM5-3/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    CNRM-CERFACS-MOCAGE-refC2:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CNRM-CERFACS/MOCAGE/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    ETH-PMOD-SOCOL3-refC2:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/ETH-PMOD/SOCOL3/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    ETH-PMOD-SOCOL3-senC2CH4rcp85:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/ETH-PMOD/SOCOL3/senC2CH4rcp85/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    ETH-PMOD-SOCOL3-senC2fCH4:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/ETH-PMOD/SOCOL3/senC2fCH4/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    ETH-PMOD-SOCOL3-senC2fEmis:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/ETH-PMOD/SOCOL3/senC2fEmis/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    ETH-PMOD-SOCOL3-senC2fN2O:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/ETH-PMOD/SOCOL3/senC2fN2O/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    ETH-PMOD-SOCOL3-senC2rcp26:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/ETH-PMOD/SOCOL3/senC2rcp26/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    ETH-PMOD-SOCOL3-senC2rcp45:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/ETH-PMOD/SOCOL3/senC2rcp45/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    ETH-PMOD-SOCOL3-senC2rcp85:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/ETH-PMOD/SOCOL3/senC2rcp85/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    GSFC-GEOSCCM-refC2:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/GSFC/GEOSCCM/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    IPSL-refC2:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/IPSL/IPSL/refC2/mon/atmos/mon/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    IPSL-senC2fGHG:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/IPSL/IPSL/senC2fGHG/mon/atmos/mon/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    IPSL-senC2fODS:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/IPSL/IPSL/senC2fODS/mon/atmos/mon/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    IPSL-senC2fODS2000:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/IPSL/IPSL/senC2fODS2000/mon/atmos/mon/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    IPSL-senC2rcp26:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/IPSL/IPSL/senC2rcp26/mon/atmos/mon/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    IPSL-senC2rcp45:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/IPSL/IPSL/senC2rcp45/mon/atmos/mon/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    IPSL-senC2rcp85:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/IPSL/IPSL/senC2rcp85/mon/atmos/mon/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-        vmro3_zm:
-            name: vmro3
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/IPSL/IPSL/senC2rcp85/mon/atmos/mon/r1i1p1/v1/vmro3/*.nc
-            coordinates:
-                time: time
-                plev: plev
-                lat: lat
-                lon: lon
-    MESSy-EMAC-L47MA-refC2:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/MESSy/EMAC-L47MA/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    MESSy-EMAC-L90MA-refC2:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/MESSy/EMAC-L90MA/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    MESSy-EMAC-L90MA-senC2fGHG:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/MESSy/EMAC-L90MA/senC2fGHG/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    MOHC-HadGEM3-ES-refC2:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/MOHC/HadGEM3-ES/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    MRI-ESM1r1-refC2:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/MRI/MRI-ESM1r1/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    NIES-CCSRNIES-MIROC3.2-refC2:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    NIES-CCSRNIES-MIROC3.2-senC2fCH4:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2fCH4/mon/atmos/monthly/r1i1p1/v3/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    NIES-CCSRNIES-MIROC3.2-senC2fGHG:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2fGHG/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    NIES-CCSRNIES-MIROC3.2-senC2fN2O:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2fN2O/mon/atmos/monthly/r1i1p1/v3/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    NIES-CCSRNIES-MIROC3.2-senC2fODS:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2fODS/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    NIES-CCSRNIES-MIROC3.2-senC2fODS2000:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2fODS2000/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    NIES-CCSRNIES-MIROC3.2-senC2rcp26:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2rcp26/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    NIES-CCSRNIES-MIROC3.2-senC2rcp45:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2rcp45/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    NIES-CCSRNIES-MIROC3.2-senC2rcp85:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2rcp85/mon/atmos/monthly/r1i1p1/v1/toz/*200001-210012.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    NIES-CCSRNIES-MIROC3.2-senC2SlrTrnd:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2SlrTrnd/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    NIWA-UKCA-refC2:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIWA/NIWA-UKCA/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    NIWA-UKCA-senC2fCH4:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIWA/NIWA-UKCA/senC2fCH4/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    NIWA-UKCA-senC2fGHG:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIWA/NIWA-UKCA/senC2fGHG/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    NIWA-UKCA-senC2fN2O:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIWA/NIWA-UKCA/senC2fN2O/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    NIWA-UKCA-senC2fODS:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIWA/NIWA-UKCA/senC2fODS/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    U-CAMBRIDGE-UMUKCA-UCAM-refC2:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-CAMBRIDGE/UMUKCA-UCAM/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    U-LAQUILA-CCM-refC2:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LAQUILA/ULAQ-CCM/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    U-LAQUILA-CCM-senC2fCH4:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LAQUILA/ULAQ-CCM/senC2fCH4/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    U-LAQUILA-CCM-senC2fEmis:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LAQUILA/ULAQ-CCM/senC2fEmis/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    U-LAQUILA-CCM-senC2fGHG:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LAQUILA/ULAQ-CCM/senC2fGHG/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    U-LAQUILA-CCM-senC2fN2O:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LAQUILA/ULAQ-CCM/senC2fN2O/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    U-LAQUILA-CCM-senC2fODS:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LAQUILA/ULAQ-CCM/senC2fODS/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    U-LAQUILA-CCM-senC2GeoMIPG4:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LAQUILA/ULAQ-CCM/senC2GeoMIPG4/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    U-LAQUILA-CCM-senC2rcp26:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LAQUILA/ULAQ-CCM/senC2rcp26/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    U-LAQUILA-CCM-senC2rcp45:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LAQUILA/ULAQ-CCM/senC2rcp45/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    U-LAQUILA-CCM-senC2rcp85:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LAQUILA/ULAQ-CCM/senC2rcp85/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    U-LAQUILA-CCM-senC2SlrTrnd:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LAQUILA/ULAQ-CCM/senC2SlrTrnd/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    U-LEEDS-UMSLIMCAT-refC2:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LEEDS/UMSLIMCAT/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    U-LEEDS-UMSLIMCAT-senC2fGHG:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LEEDS/UMSLIMCAT/senC2fGHG/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    U-LEEDS-UMSLIMCAT-senC2fODS:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LEEDS/UMSLIMCAT/senC2fODS/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    U-LEEDS-UMSLIMCAT-senC2fODS2000:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LEEDS/UMSLIMCAT/senC2fODS2000/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    U-LEEDS-UMSLIMCAT-senC2rcp45:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LEEDS/UMSLIMCAT/senC2rcp45/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-    U-LEEDS-UMSLIMCAT-senC2rcp85:
-        tco3_zm:
-            name: toz
-            paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LEEDS/UMSLIMCAT/senC2rcp85/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-            coordinates:
-                time: time
-                lat: lat
-                lon: lon
-
+CCMI-1_ACCESS_ACCESS-CCM-refC2:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/ACCESS/ACCESS-CCM/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_ACCESS_ACCESS-CCM-senC2fGHG:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/ACCESS/ACCESS-CCM/senC2fGHG/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_ACCESS_ACCESS-CCM-senC2fODS:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/ACCESS/ACCESS-CCM/senC2fODS/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_CCCma_CMAM-refC2:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CCCma/CMAM/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_CCCma_CMAM-senC2CH4rcp85:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CCCma/CMAM/senC2CH4rcp85/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_CCCma_CMAM-senC2fCH4:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CCCma/CMAM/senC2fCH4/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_CCCma_CMAM-senC2fGHG:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CCCma/CMAM/senC2fGHG/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_CCCma_CMAM-senC2fN2O:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CCCma/CMAM/senC2fN2O/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_CCCma_CMAM-senC2fODS:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CCCma/CMAM/senC2fODS/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_CCCma_CMAM-senC2rcp26:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CCCma/CMAM/senC2rcp26/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_CCCma_CMAM-senC2rcp45:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CCCma/CMAM/senC2rcp45/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_CCCma_CMAM-senC2rcp85:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CCCma/CMAM/senC2rcp85/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_CHASER-MIROC-ESM-refC2:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CHASER-MIROC-ESM/CHASER-MIROC-ESM/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_CHASER-MIROC-ESM-senC2fCH4:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CHASER-MIROC-ESM/CHASER-MIROC-ESM/senC2fCH4/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_CHASER-MIROC-ESM-senC2fEmis:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CHASER-MIROC-ESM/CHASER-MIROC-ESM/senC2fEmis/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_CHASER-MIROC-ESM-senC2fGHG:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CHASER-MIROC-ESM/CHASER-MIROC-ESM/senC2fGHG/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_CHASER-MIROC-ESM-senC2fN2O:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CHASER-MIROC-ESM/CHASER-MIROC-ESM/senC2fN2O/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_CHASER-MIROC-ESM-senC2fODS:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CHASER-MIROC-ESM/CHASER-MIROC-ESM/senC2fODS/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_CNRM-CERFACS_CNRM-CM5-3-refC2:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CNRM-CERFACS/CNRM-CM5-3/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_CNRM-CERFACS_MOCAGE-refC2:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/CNRM-CERFACS/MOCAGE/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_ETH-PMOD_SOCOL3-refC2:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/ETH-PMOD/SOCOL3/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_ETH-PMOD_SOCOL3-senC2CH4rcp85:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/ETH-PMOD/SOCOL3/senC2CH4rcp85/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_ETH-PMOD_SOCOL3-senC2fCH4:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/ETH-PMOD/SOCOL3/senC2fCH4/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_ETH-PMOD_SOCOL3-senC2fEmis:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/ETH-PMOD/SOCOL3/senC2fEmis/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_ETH-PMOD_SOCOL3-senC2fN2O:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/ETH-PMOD/SOCOL3/senC2fN2O/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_ETH-PMOD_SOCOL3-senC2rcp26:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/ETH-PMOD/SOCOL3/senC2rcp26/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_ETH-PMOD_SOCOL3-senC2rcp45:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/ETH-PMOD/SOCOL3/senC2rcp45/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_ETH-PMOD_SOCOL3-senC2rcp85:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/ETH-PMOD/SOCOL3/senC2rcp85/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_GSFC_GEOSCCM-refC2:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/GSFC/GEOSCCM/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_IPSL-senC2rcp85:
+  vmro3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      plev: plev
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: vmro3
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/IPSL/IPSL/senC2rcp85/mon/atmos/mon/r1i1p1/v1/vmro3/*.nc
+CCMI-1_IPSL_IPSL-refC2:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/IPSL/IPSL/refC2/mon/atmos/mon/r1i1p1/v1/toz/*.nc
+CCMI-1_IPSL_IPSL-senC2fGHG:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/IPSL/IPSL/senC2fGHG/mon/atmos/mon/r1i1p1/v1/toz/*.nc
+CCMI-1_IPSL_IPSL-senC2fODS:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/IPSL/IPSL/senC2fODS/mon/atmos/mon/r1i1p1/v1/toz/*.nc
+CCMI-1_IPSL_IPSL-senC2fODS2000:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/IPSL/IPSL/senC2fODS2000/mon/atmos/mon/r1i1p1/v1/toz/*.nc
+CCMI-1_IPSL_IPSL-senC2rcp26:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/IPSL/IPSL/senC2rcp26/mon/atmos/mon/r1i1p1/v1/toz/*.nc
+CCMI-1_IPSL_IPSL-senC2rcp45:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/IPSL/IPSL/senC2rcp45/mon/atmos/mon/r1i1p1/v1/toz/*.nc
+CCMI-1_IPSL_IPSL-senC2rcp85:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/IPSL/IPSL/senC2rcp85/mon/atmos/mon/r1i1p1/v1/toz/*.nc
+CCMI-1_MESSy_EMAC-L47MA-refC2:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/MESSy/EMAC-L47MA/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_MESSy_EMAC-L90MA-refC2:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/MESSy/EMAC-L90MA/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_MESSy_EMAC-L90MA-senC2fGHG:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/MESSy/EMAC-L90MA/senC2fGHG/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_MOHC_HadGEM3-ES-refC2:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/MOHC/HadGEM3-ES/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_MRI_ESM1r1-refC2:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/MRI/MRI-ESM1r1/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_NIES_CCSRNIES-MIROC3.2-refC2:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_NIES_CCSRNIES-MIROC3.2-senC2SlrTrnd:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2SlrTrnd/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_NIES_CCSRNIES-MIROC3.2-senC2fCH4:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2fCH4/mon/atmos/monthly/r1i1p1/v3/toz/*.nc
+CCMI-1_NIES_CCSRNIES-MIROC3.2-senC2fGHG:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2fGHG/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_NIES_CCSRNIES-MIROC3.2-senC2fN2O:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2fN2O/mon/atmos/monthly/r1i1p1/v3/toz/*.nc
+CCMI-1_NIES_CCSRNIES-MIROC3.2-senC2fODS:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: 'Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2fODS/mon/atmos/monthly/r1i1p1/v1/toz/*.nc '
+CCMI-1_NIES_CCSRNIES-MIROC3.2-senC2fODS2000:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2fODS2000/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_NIES_CCSRNIES-MIROC3.2-senC2rcp26:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2rcp26/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_NIES_CCSRNIES-MIROC3.2-senC2rcp45:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2rcp45/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_NIES_CCSRNIES-MIROC3.2-senC2rcp85:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2rcp85/mon/atmos/monthly/r1i1p1/v1/toz/*200001-210012.nc
+CCMI-1_NIWA_NIWA-UKCA-refC2:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIWA/NIWA-UKCA/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_NIWA_NIWA-UKCA-senC2fCH4:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIWA/NIWA-UKCA/senC2fCH4/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_NIWA_NIWA-UKCA-senC2fGHG:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIWA/NIWA-UKCA/senC2fGHG/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_NIWA_NIWA-UKCA-senC2fN2O:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIWA/NIWA-UKCA/senC2fN2O/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_NIWA_NIWA-UKCA-senC2fODS:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIWA/NIWA-UKCA/senC2fODS/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_U-CAMBRIDGE_UMUKCA-UCAM-refC2:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-CAMBRIDGE/UMUKCA-UCAM/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_U-LAQUILA_CCM-refC2:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LAQUILA/ULAQ-CCM/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_U-LAQUILA_CCM-senC2GeoMIPG4:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LAQUILA/ULAQ-CCM/senC2GeoMIPG4/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_U-LAQUILA_CCM-senC2SlrTrnd:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LAQUILA/ULAQ-CCM/senC2SlrTrnd/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_U-LAQUILA_CCM-senC2fCH4:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LAQUILA/ULAQ-CCM/senC2fCH4/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_U-LAQUILA_CCM-senC2fEmis:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LAQUILA/ULAQ-CCM/senC2fEmis/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_U-LAQUILA_CCM-senC2fGHG:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LAQUILA/ULAQ-CCM/senC2fGHG/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_U-LAQUILA_CCM-senC2fN2O:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LAQUILA/ULAQ-CCM/senC2fN2O/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_U-LAQUILA_CCM-senC2fODS:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LAQUILA/ULAQ-CCM/senC2fODS/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_U-LAQUILA_CCM-senC2rcp26:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LAQUILA/ULAQ-CCM/senC2rcp26/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_U-LAQUILA_CCM-senC2rcp45:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LAQUILA/ULAQ-CCM/senC2rcp45/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_U-LAQUILA_CCM-senC2rcp85:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LAQUILA/ULAQ-CCM/senC2rcp85/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_U-LEEDS_UMSLIMCAT-refC2:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LEEDS/UMSLIMCAT/refC2/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_U-LEEDS_UMSLIMCAT-senC2fGHG:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LEEDS/UMSLIMCAT/senC2fGHG/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_U-LEEDS_UMSLIMCAT-senC2fODS:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LEEDS/UMSLIMCAT/senC2fODS/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_U-LEEDS_UMSLIMCAT-senC2fODS2000:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LEEDS/UMSLIMCAT/senC2fODS2000/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_U-LEEDS_UMSLIMCAT-senC2rcp45:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LEEDS/UMSLIMCAT/senC2rcp45/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+CCMI-1_U-LEEDS_UMSLIMCAT-senC2rcp85:
+  tco3_zm:
+    coordinates:
+      lat: lat
+      lon: lon
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-01-00T00:00:00.000000000'
+    name: toz
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LEEDS/UMSLIMCAT/senC2rcp85/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
+ECMWF_ERA-5:
+  tco3_zm:
+    coordinates:
+      lat: latitude
+      lon: longitude
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-00-00T01:00:00.000000000'
+    name: tco3
+    paths: Ecmwf/Era5/*.nc
+ECMWF_ERA-interim:
+  tco3_zm:
+    coordinates:
+      lat: latitude
+      lon: longitude
+      time: time
+    metadata:
+      lat_range: '[-90.0,90.0]'
+      t_delta: '0000-00-00T06:00:00.000000000'
+    name: tco3
+    paths: Ecmwf/Erai/*.nc
+ESACCI_DLR-merged-SAT-ozone:
+  tco3_zm:
+    coordinates:
+      lat: latitude
+      lon: longitude
+    metadata:
+      lat_range: ''
+      t_delta: ''
+    name: ''
+    paths: Esacci/ozone/Total_Columns/L3/MERGED/*.nc
+SBUV_GSFC_merged-SAT-ozone:
+  tco3_zm:
+    coordinates: {}
+    metadata:
+      lat_range: ''
+      t_delta: ''
+    name: TOT Zonal Means
+    paths: Sbuv/sbuv.v86.mod_v10.70-18.za.txt

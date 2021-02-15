@@ -92,7 +92,7 @@ def group_models(document):
         v = row.pop('variable')
         try:
             structure_model(row)
-            add_subdict([s, m, v], row, output)
+            add_subdict([s + '_' + m, v], row, output)
         except Exception:
             message = "Adding source: '{}', model: '{}', var: '{}'"
             logging.error(message.format(s, m, v), exc_info=True)

@@ -1,0 +1,182 @@
+#!/usr/bin/env python3
+"""
+Script to perform o3skiming on the o3as database.
+"""
+import argparse
+from dask.distributed import Client
+# from dask_mpi import initialize
+import dask
+import glob
+import logging
+import os
+import subprocess
+import sys
+import tempfile
+import yaml
+# initialize()
+
+
+parser = argparse.ArgumentParser(
+    prog='PROG', description=__doc__,
+    formatter_class=argparse.RawDescriptionHelpFormatter,
+    epilog="See '<command> --help' to read about a specific sub-command.")
+parser.add_argument(
+    "-v", "--verbosity", type=str, default='INFO',
+    choices=['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'],
+    help="Sets the logging level (default: %(default)s)")
+parser.add_argument(
+    "--standard", type=str, default=None,
+    help="Output folder for standardized files (default: %(default)s)")
+parser.add_argument(
+    "--skimmed", type=str, default='Skimmed',
+    help="Output folder for skimmed files (default: %(default)s)")
+parser.add_argument(
+    "source_file", nargs=1, type=str, action='store',
+    help="Path to source file with skimming configurations")
+
+
+def main():
+    args = parser.parse_args()
+    try:
+        client = Client(n_workers=2)
+        run_command(client, **vars(args))
+    finally:
+        client.close()
+    sys.exit(0)  # Shell return 0 == success
+
+
+def run_command(client, verbosity, standard, skimmed, source_file):
+    # Set logging level
+    logging.basicConfig(
+        level=getattr(logging, verbosity),
+        format='%(asctime)s main ---- %(levelname)-8s %(message)s')
+    client.run(worker_logging, verbosity)
+
+    # Common operations
+    logging.info("Program start")
+
+    # Read source file
+    logging.info("Reading source files %s", source_file[0])
+    with open(source_file[0], 'r') as stream:
+        models = yaml.safe_load(stream)
+
+    # Log debug identified models
+    for model in models:
+        logging.debug("Identified model: %s", model)
+
+    # Define delayed processes
+    logging.info("Creating dask graph for models")
+    operations = []
+    for model, kwargs in models.items():
+        result = dask.delayed(worker_process)(
+            model, verbosity, standard, skimmed, **kwargs)
+        operations.append(result)
+
+    # Execution call
+    logging.info("Computing graph on workers")
+    dask.compute(*operations)
+
+    # End of program
+    logging.info("End of program")
+
+
+def worker_logging(verbosity):
+    logging.basicConfig(
+        level=getattr(logging, verbosity),
+        format='%(asctime)s task:%(name)-36s %(levelname)-8s %(message)s')
+
+
+def worker_process(model, verbosity, standard, skimmed, **kwargs):
+    if standard == None:
+        # Create temp dir if not specified
+        with tempfile.TemporaryDirectory() as temp:
+            result = worker_process(model, verbosity, temp, skimmed, **kwargs)
+        return result
+    else:
+        kwargs = o3norm(model, verbosity, standard, **kwargs)
+        kwargs = o3skim(model, verbosity, skimmed, **kwargs)
+        result = metadata(model, verbosity, skimmed, **kwargs)
+        return result
+
+
+def o3norm(model, verbosity, standard, source, **kwargs):
+    logger = logging.getLogger(f"Standard:{model}")
+
+    # Common operations
+    logger.info("Standardization start")
+    folder = f"{standard}/{model}"
+    target = f"{folder}/o3data"
+    os.makedirs(folder, exist_ok=True)
+
+    # Loading of DataArray and attributes
+    logger.info("Data normalisation as %s", source)
+    kwargs = o3norm_tco3(model, verbosity, target, source, **kwargs)
+    kwargs = o3norm_vmro3(model, verbosity, target, source, **kwargs)
+
+    # End of program
+    logger.info("Standardization End")
+    return {**kwargs, 'paths': glob.glob(f"{target}*")}
+
+
+def o3norm_tco3(model, verbosity, target, source, tco3_zm=None, **kwargs):
+    logger = logging.getLogger(f"Standard:{model}")
+    if tco3_zm:
+        logger.info("Data tco3_zm normalization as %s", source)
+        indexes = ['variable', 'paths']
+        args = [x for x in (tco3_zm.pop(i, None) for i in indexes) if x]
+        call = ["o3norm", '-v', verbosity, '-t', target, "--tco3_zm"]
+        subprocess.run([*call, source, *args], check=True)
+    return {**kwargs, 'tco3_zm': tco3_zm}
+
+
+def o3norm_vmro3(model, verbosity, target, source, vmro3_zm=None, **kwargs):
+    logger = logging.getLogger(f"Standard:{model}")
+    if vmro3_zm:
+        logger.info("Data vmro3_zm normalization as %s", source)
+        indexes = ['variable', 'paths']
+        args = [x for x in (vmro3_zm.pop(i, None) for i in indexes) if x]
+        call = ["o3norm", '-v', verbosity, '-t', target, "--vmro3_zm"]
+        subprocess.run([*call, source, *args], check=True)
+    return {**kwargs, 'vmro3_zm': vmro3_zm}
+
+
+def o3skim(model, verbosity, skimmed, paths, operations=[], **kwargs):
+    logger = logging.getLogger(f"Skimming:{model}")
+
+    # Common operations
+    logger.info("Skimming start")
+    output = f"{skimmed}/{model}"
+    os.makedirs(output, exist_ok=True)
+
+    # Loading of DataArray and attributes
+    logger.info("Data skimming using %s", operations)
+    call = ["o3skim", '-v', verbosity, '-o', output]
+    operations = ["--{}".format(x) for x in operations]
+    subprocess.run([*call, *operations, *paths], check=True)
+
+    # End of program
+    logger.info("Skimming End")
+    return kwargs
+
+
+def metadata(model, verbosity,  skimmed, metadata={}, **kwmeta):
+    logger = logging.getLogger(f"Metadata:{model}")
+
+    # Common operations
+    logger.info("Metadata start")
+    output = f"{skimmed}/{model}/metadata.yaml"
+
+    # Saving metadata in model output
+    logger.info("Metadata saving")
+    metadata = {**metadata, **kwmeta}
+    logger.debug("Metadata: %s", metadata)
+    with open(output, 'w') as outfile:
+        yaml.dump(metadata, outfile, default_flow_style=False)
+
+    # End of program
+    logger.info("Metadata End")
+    return True
+
+
+if __name__ == '__main__':
+    main()

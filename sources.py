@@ -3,44 +3,49 @@
 """
 import argparse
 import csv
-import json
 import logging
 import sys
-import warnings
 import yaml
 
 
-# Script configuration
-warnings.simplefilter(action='ignore', category=FutureWarning)
-key_parameters = ['name', 'paths', 'coordinates']
-output_name = "sources.yaml"
+# Main script arguments
+parser = argparse.ArgumentParser(
+    prog='PROG', description=__doc__,
+    formatter_class=argparse.RawDescriptionHelpFormatter)
+parser.add_argument(
+    "-v", "--verbosity", type=str, default='ERROR',
+    choices=['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'],
+    help="Sets the logging level (default: %(default)s)")
+parser.add_argument(
+    "-o", "--output", type=str, default="sources.yaml",
+    help="Output file name (default: %(default)s)")
+parser.add_argument(
+    "-f", "--format", type=str, default='csv',
+    choices=['csv'],
+    help="Expected input file format (default: %(default)s)")
+parser.add_argument(
+    "document",
+    action='store', nargs=1, type=str,
+    help="Document to convert to sources.yaml")
+
+# Available operations group
+operations = parser.add_argument_group('operations')
+operations.add_argument(
+    "--lon_mean", action='append_const',
+    dest='operations', const='lon_mean',
+    help="Adds longitudinal mean to file operations")
+operations.add_argument(
+    "--lat_mean", action='append_const',
+    dest='operations', const='lat_mean',
+    help="Adds latitudinal mean to file operations")
+operations.add_argument(
+    "--year_mean", action='append_const',
+    dest='operations', const='year_mean',
+    help="Adds time average to file operations")
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        prog='PROG', description=__doc__,
-        formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument(
-        "-v", "--verbosity", type=str, default='ERROR',
-        choices=['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'],
-        help="Sets the logging level (default: %(default)s)")
-    parser.add_argument(
-        "-f", "--format", type=str, default='csv',
-        choices=['csv'],
-        help="Expected input file format (default: %(default)s)")
-    parser.add_argument(
-        "document",
-        action='store', nargs=1, type=str,
-        help="Document to convert to sources.yaml")
-
-    # Return arguments
     args = parser.parse_args()
-    run_command(args)
-    sys.exit(0)  # Shell return 0 == success
-
-
-def run_command(args):
-    # Set logging level
     logging.basicConfig(
         level=getattr(logging, args.verbosity),
         format='%(asctime)s  %(levelname)-8s %(message)s'
@@ -56,13 +61,25 @@ def run_command(args):
     logging.info("Grouping document sources")
     sources = group_models(document)
 
+    # Cleaning sources
+    logging.info("Cleaning bad document sources")
+    sources.pop('_', None)
+
+    # Add operations to models
+    logging.info("Adding sources operations")
+    logging.debug("Operations: %s", args.operations)
+    if args.operations:
+        for model in sources:
+            sources[model]['operations'] = args.operations.copy()
+
     # Saving into sources.yaml
-    logging.info("Saving file to %s", output_name)
-    with open(output_name, 'w') as output_file:
+    logging.info("Saving file to %s", args.output)
+    with open(args.output, 'w') as output_file:
         yaml.dump(sources, output_file, allow_unicode=True)
 
     # End of program
     logging.info("End of program")
+    sys.exit(0)  # Shell return 0 == success
 
 
 def from_csv(document):
@@ -87,32 +104,17 @@ def group_models(document):
     """Groups the rows into sources, models and variable"""
     output = {}
     for row in document:
+        row = {k: v.strip() for k, v in row.items()}  # Strip spaces
         s = row.pop('source')
         m = row.pop('model')
-        v = row.pop('variable')
+        v = row.pop('parameter')
         try:
-            structure_model(row)
+            add_subdict([s + '_' + m], {'source': s}, output)
             add_subdict([s + '_' + m, v], row, output)
         except Exception:
             message = "Adding source: '{}', model: '{}', var: '{}'"
             logging.error(message.format(s, m, v), exc_info=True)
     return output
-
-
-def structure_model(row):
-    """Structures a model row"""
-    row['coordinates'] = json.loads(row['coordinates'])
-    set_metadata(row)
-
-
-def set_metadata(row):
-    """Set row metadata from non key parameters"""
-    metadata = row.copy()
-    {k: metadata.pop(k) for k in key_parameters}
-    logging.debug("Set row metadata: %s", metadata)
-    {k: row.pop(k) for k in metadata}
-    logging.debug("Set row key parameters: %s", row)
-    row['metadata'] = metadata
 
 
 def add_subdict(keys, value, dictionary):

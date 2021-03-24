@@ -35,12 +35,15 @@ SOURCES_FILE="${LSDF}/kit/imk-asf/projects/O3as/03sources/sources.yaml"
 MODELS_FOLDER="${LSDF}/kit/imk-asf/projects/O3as"
 
 UDOCKER_OPTIONS="
-  --user=application \
-  --volume=${SOURCES_FILE}:/app/Data/sources.yaml \
-  --volume=${MODELS_FOLDER}:/app/Data"
+    --user=application \
+    --volume=${SOURCES_FILE}:/app/Data/sources.yaml \
+    --volume=${MODELS_FOLDER}:/app/Data \
+    --env RUN_STANDARD=True \
+    --env RUN_SKIMMING=True \
+    --env RUN_METADATA=True"
 
 CONTAINER_OPTIONS="
---verbosity=DEBUG"
+    --verbosity=DEBUG"
 
 ##### RUN THE JOB #####
 echo "==========================================="

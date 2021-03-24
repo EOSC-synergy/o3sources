@@ -134,6 +134,15 @@ $ sbatch -p normal job_ompi_omp.sh
 Submitted batch job .....
 ```
 
-Note that to run the script you need to have udocker installed, configured and
-a o3sources container available.
+> Note that to run the script you need to have udocker installed, configured and
+> a o3sources container available.
+
+> To disable MPI, you can set --ntasks=1 on SBATCH configuration.
+
+> You can use ENV variables to disable skimming steps 
+>  - RUN_STANDARD=False to disable standardization step
+>  - RUN_SKIMMING=False to disable skimming step
+>  - RUN_METADATA=False to disable metadata parsing step
+
+> Note RUN_SKIMMING step cannot work without RUN_STANDARD step.
 

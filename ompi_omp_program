@@ -4,6 +4,7 @@ Script to perform o3skiming on the o3as database.
 """
 import argparse
 from dask.distributed import Client
+from environs import Env
 # from dask_mpi import initialize
 import dask
 import glob
@@ -13,7 +14,14 @@ import subprocess
 import sys
 import tempfile
 import yaml
-# initialize()
+
+# initialize() # Dask
+env = Env()
+env.read_env()
+
+RUN_STANDARD = env.bool("RUN_STANDARD", default=True)
+RUN_SKIMMING = env.bool("RUN_SKIMMING", default=True)
+RUN_METADATA = env.bool("RUN_METADATA", default=True)
 
 
 parser = argparse.ArgumentParser(
@@ -38,7 +46,7 @@ parser.add_argument(
 def main():
     args = parser.parse_args()
     try:
-        client = Client(n_workers=2)
+        client = Client() # TODO: Add MPI configuration
         run_command(client, **vars(args))
     finally:
         client.close()
@@ -69,7 +77,8 @@ def run_command(client, verbosity, standard, skimmed, source_file):
     operations = []
     for model, kwargs in models.items():
         result = dask.delayed(worker_process)(
-            model, verbosity, standard, skimmed, **kwargs)
+            model, verbosity, standard, skimmed, **kwargs
+        )
         operations.append(result)
 
     # Execution call
@@ -103,13 +112,12 @@ def o3norm(model, verbosity, standard, source, **kwargs):
     logger = logging.getLogger(f"Standard:{model}")
 
     # Common operations
-    logger.info("Standardization start")
+    logger.info("Standardization start: %s", RUN_STANDARD)
     folder = f"{standard}/{model}"
     target = f"{folder}/o3data"
     os.makedirs(folder, exist_ok=True)
 
     # Loading of DataArray and attributes
-    logger.info("Data normalisation as %s", source)
     kwargs = o3norm_tco3(model, verbosity, target, source, **kwargs)
     kwargs = o3norm_vmro3(model, verbosity, target, source, **kwargs)
 
@@ -121,22 +129,24 @@ def o3norm(model, verbosity, standard, source, **kwargs):
 def o3norm_tco3(model, verbosity, target, source, tco3_zm=None, **kwargs):
     logger = logging.getLogger(f"Standard:{model}")
     if tco3_zm:
-        logger.info("Data tco3_zm normalization as %s", source)
         indexes = ['variable', 'paths']
         args = [x for x in (tco3_zm.pop(i, None) for i in indexes) if x]
         call = ["o3norm", '-v', verbosity, '-t', target, "--tco3_zm"]
-        subprocess.run([*call, source, *args], check=True)
+        if RUN_STANDARD:
+            logger.info("Data tco3_zm normalization as %s", source)
+            subprocess.run([*call, source, *args], check=True)
     return {**kwargs, 'tco3_zm': tco3_zm}
 
 
 def o3norm_vmro3(model, verbosity, target, source, vmro3_zm=None, **kwargs):
     logger = logging.getLogger(f"Standard:{model}")
     if vmro3_zm:
-        logger.info("Data vmro3_zm normalization as %s", source)
         indexes = ['variable', 'paths']
         args = [x for x in (vmro3_zm.pop(i, None) for i in indexes) if x]
         call = ["o3norm", '-v', verbosity, '-t', target, "--vmro3_zm"]
-        subprocess.run([*call, source, *args], check=True)
+        if RUN_STANDARD:
+            logger.info("Data vmro3_zm normalization as %s", source)
+            subprocess.run([*call, source, *args], check=True)
     return {**kwargs, 'vmro3_zm': vmro3_zm}
 
 
@@ -144,34 +154,35 @@ def o3skim(model, verbosity, skimmed, paths, operations=[], **kwargs):
     logger = logging.getLogger(f"Skimming:{model}")
 
     # Common operations
-    logger.info("Skimming start")
+    logger.info("Skimming start: %s", RUN_SKIMMING)
     output = f"{skimmed}/{model}"
     os.makedirs(output, exist_ok=True)
 
     # Loading of DataArray and attributes
-    logger.info("Data skimming using %s", operations)
     call = ["o3skim", '-v', verbosity, '-o', output]
     operations = ["--{}".format(x) for x in operations]
-    subprocess.run([*call, *operations, *paths], check=True)
+    if RUN_SKIMMING:
+        logger.info("Data skimming using %s", operations)
+        subprocess.run([*call, *operations, *paths], check=True)
 
     # End of program
     logger.info("Skimming End")
     return kwargs
 
 
-def metadata(model, verbosity,  skimmed, metadata={}, **kwmeta):
+def metadata(model, verbosity, skimmed, metadata={}, **kwmeta):
     logger = logging.getLogger(f"Metadata:{model}")
 
     # Common operations
-    logger.info("Metadata start")
+    logger.info("Metadata start: %s", RUN_METADATA)
     output = f"{skimmed}/{model}/metadata.yaml"
 
     # Saving metadata in model output
-    logger.info("Metadata saving")
     metadata = {**metadata, **kwmeta}
-    logger.debug("Metadata: %s", metadata)
-    with open(output, 'w') as outfile:
-        yaml.dump(metadata, outfile, default_flow_style=False)
+    if RUN_METADATA:
+        logger.info("Metadata: %s", metadata)
+        with open(output, 'w') as outfile:
+            yaml.dump(metadata, outfile, default_flow_style=False)
 
     # End of program
     logger.info("Metadata End")

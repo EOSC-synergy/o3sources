@@ -25,13 +25,13 @@ parser.add_argument(
     choices=['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'],
     help="Sets the logging level (default: %(default)s)")
 parser.add_argument(
-    "--standard", type=str, default=None,
+    "--standard", type=str, default='Standard',
     help="Output folder for standardized files (default: %(default)s)")
 parser.add_argument(
     "--skimmed", type=str, default='Skimmed',
     help="Output folder for skimmed files (default: %(default)s)")
 parser.add_argument(
-    "source_file", nargs=1, type=str, action='store',
+    "--source_file", type=str, default='sources.yaml',
     help="Path to source file with skimming configurations")
 
 
@@ -56,8 +56,8 @@ def run_command(client, verbosity, standard, skimmed, source_file):
     logging.info("Program start")
 
     # Read source file
-    logging.info("Reading source files %s", source_file[0])
-    with open(source_file[0], 'r') as stream:
+    logging.info("Reading source files %s", source_file)
+    with open(source_file, 'r') as stream:
         models = yaml.safe_load(stream)
 
     # Log debug identified models

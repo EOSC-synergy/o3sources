@@ -728,6 +728,13 @@ CCMI-1_IPSL_IPSL-senC2rcp85:
   operations:
   - lon_mean
   source: CCMI-1
+  tco3_zm:
+    meta1: any
+    meta2: ''
+    meta3: ''
+    meta4: ''
+    paths: Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/IPSL/IPSL/senC2rcp85/mon/atmos/mon/r1i1p1/v1/toz/*.nc
+    variable: toz
   vmro3_zm:
     meta1: blue
     meta2: ''

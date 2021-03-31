@@ -109,7 +109,7 @@ def group_models(document):
         m = row.pop('model')
         v = row.pop('parameter')
         try:
-            add_subdict([s + '_' + m], {'source': s}, output)
+            add_subdict([s + '_' + m, 'source'], s, output)
             add_subdict([s + '_' + m, v], row, output)
         except Exception:
             message = "Adding source: '{}', model: '{}', var: '{}'"

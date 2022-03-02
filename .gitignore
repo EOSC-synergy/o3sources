@@ -1,4 +1,6 @@
 .vscode
+test_datafiles
+dask-worker-space
 *.csv
-o3skim.err
-o3skim.out
+*.err
+*.out

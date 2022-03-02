@@ -24,7 +24,6 @@ export NUM_CORES=${SLURM_NTASKS}*${SLURM_CPUS_PER_TASK}
 ##########
 
 # ------------------------
-UDOCKER_DIR="$PROJECT/.udocker" # Location of udocker and containers
 CONTAINER="o3sources"
 CONTAINER_STDOUT="$CONTAINER.out"
 CONTAINER_STDERR="$CONTAINER.err"

@@ -32,6 +32,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         ca-certificates \
         gcc \
         g++ \
+        libproj-dev proj-data proj-bin \
+        libgeos-dev \
         git && \
 # Clean up & back to dialog front end
     apt-get autoremove -y && \

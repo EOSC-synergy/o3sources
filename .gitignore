@@ -1,5 +1,7 @@
 .vscode
-test_datafiles
+Skimmed
+test_datafiles/*
+!test_datafiles/sources.yaml
 dask-worker-space
 *.csv
 *.err

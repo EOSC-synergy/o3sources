@@ -14,26 +14,33 @@ CONTAINER_STDERR="$CONTAINER.err"
 
 # According to https://wiki.scc.kit.edu/hpc/index.php/ForHLR_-_Hardware_and_Architecture#LSDF_online_storage_2
 # we can use $LSDF environment setting
-SOURCES_FILE="test_datafiles/sources.yaml"
-MODELS_FOLDER="test_datafiles"
+SOURCES_FILE="$PWD/test_datafiles/sources.yaml"
+SOURCES_FOLDER="$PWD/test_datafiles"
+SKIMMED_FOLDER="$PWD/Skimmed"
 
 DOCKER_OPTIONS="
     --user=application \
-    --volume=${SOURCES_FILE}:/app/Data/sources.yaml \
-    --volume=${MODELS_FOLDER}:/app/Data \
+    --volume=${SOURCES_FILE}:/app/sources.yaml \
+    --volume=${SOURCES_FOLDER}:/app/Sources \
+    --volume=${SKIMMED_FOLDER}:/app/Skimmed \
     --env RUN_STANDARD=True \
     --env RUN_SKIMMING=True \
-    --env RUN_METADATA=True"
+    --env RUN_METADATA=True \
+"
 
 CONTAINER_OPTIONS="
-    --verbosity=DEBUG"
+    --verbosity=DEBUG \
+    --sources=Sources \
+    --output=Skimmed \
+"
 
 ##### RUN THE JOB #####
 echo "==========================================="
 echo "=> docker container: $CONTAINER"
 echo "=> Running on: $HOSTNAME"
 echo "==========================================="
-EXECUTABLE="docker run ${UDOCKER_OPTIONS} ${CONTAINER} ${CONTAINER_OPTIONS}"
+EXECUTABLE="docker run --rm ${DOCKER_OPTIONS} ${CONTAINER} ${CONTAINER_OPTIONS}"
+# EXECUTABLE="docker run --rm -it ${DOCKER_OPTIONS} ${CONTAINER} bash"
 
 echo $EXECUTABLE
 exec $EXECUTABLE \

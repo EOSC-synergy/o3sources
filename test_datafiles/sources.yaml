@@ -3,7 +3,7 @@ CCMI-1_ACCESS_ACCESS-CCM-refC2:
   - lon_mean
   source: CCMI-1
   tco3_zm:
-    paths: test_datafiles/CCMI-1_ACCESS_ACCESS-CCM-refC2/*.nc
+    paths: CCMI-1_ACCESS_ACCESS-CCM-refC2/*.nc
     variable: equivalent_thickness_at_stp_of_atmosphere_ozone_content 
     plot_color: purple
     plot_linestyle: solid
@@ -13,7 +13,7 @@ CCMI-1_ACCESS_ACCESS-CCM-senC2fGHG:
   - lon_mean
   source: CCMI-1
   tco3_zm:
-    paths: test_datafiles/CCMI-1_ACCESS_ACCESS-CCM-senC2fGHG/*.nc
+    paths: CCMI-1_ACCESS_ACCESS-CCM-senC2fGHG/*.nc
     variable: equivalent_thickness_at_stp_of_atmosphere_ozone_content
     plot_color: brown
     plot_linestyle: solid
@@ -23,7 +23,7 @@ CCMI-1_CESM1-CAM4Chem-refC1_r1i1p1:
   - lon_mean
   source: CCMI-1
   tco3_zm:
-    paths: test_datafiles/CCMI-1_CESM1-CAM4Chem-refC1_r1i1p1/*.nc
+    paths: CCMI-1_CESM1-CAM4Chem-refC1_r1i1p1/*.nc
     variable: equivalent_thickness_at_stp_of_atmosphere_ozone_content
     plot_color: green
     plot_linestyle: solid

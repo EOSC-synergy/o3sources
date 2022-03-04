@@ -43,6 +43,7 @@ ENV DEBIAN_FRONTEND=dialog
 
 COPY requirements.txt ./
 RUN pip install --no-cache -r requirements.txt
+RUN rm requirements.txt
 
 # Change user context and drop root privileges
 RUN mkdir /app
@@ -51,11 +52,11 @@ RUN groupadd -r ${group} && \
     chown -R ${user} /app 
 USER ${user}
 
-COPY ompi_omp_program /app/ompi_omp_program
-RUN mkdir -p /app/Data/Standard
-RUN mkdir -p /app/Data/Skimmed
+RUN mkdir -p /app/Sources
+RUN mkdir -p /app/Skimmed
 
-WORKDIR /app/Data
+WORKDIR /app
+COPY ompi_omp_program ompi_omp_program
 
 # Start default script
-ENTRYPOINT [ "/app/ompi_omp_program" ]
+ENTRYPOINT [ "./ompi_omp_program" ]

@@ -19,7 +19,6 @@ env.read_env()
 
 RUN_SKIMMING = env.bool("RUN_SKIMMING", default=True)
 RUN_METADATA = env.bool("RUN_METADATA", default=True)
-N_PROCESS = env.int("SLURM_NTASKS", default=4)
 
 def set_verbosity(value):
     global VERBOSITY
@@ -31,7 +30,11 @@ def set_verbosity(value):
 
 def set_output(value):
     global OUTPUT
-    OUTPUT = Path(value)        
+    OUTPUT = Path(value)
+
+def set_sources(value):
+    global SOURCES
+    SOURCES = Path(value)
 
 def set_source_file(value):
     global SOURCE_FILE
@@ -51,24 +54,33 @@ parser.add_argument(
     "-o", "--output", type=str, default='Skimmed',
     help="Output folder for skimmed files (default: %(default)s)")
 parser.add_argument(
+    "-s", "--sources", type=str, default='Sources',
+    help="Sources folder for input paths (default: %(default)s)")
+parser.add_argument(
     "--source_file", type=str, default='sources.yaml',
     help="Path to source file with skimming configurations")
 
 
 # Script command actions --------------------------------------------
-def run_command(verbosity, output, source_file, **options):
-    # Sets the verbosity level
-    set_verbosity(verbosity)
-    set_output(output)
-    set_source_file(source_file)
-
+def run_command(
+    verbosity, output, sources, source_file, **options
+):
     # Common operations
+    set_verbosity(verbosity)
     logging.info("Program start")
+    logging.debug(f"Working directory:\n{os.getcwd()}")
+    logging.debug(f"List directory:\n{os.listdir()}")
+    set_output(output)
+    logging.debug(f"Output dir files:\n{os.listdir(OUTPUT)}")
+    set_sources(sources)
+    logging.debug(f"Source dir files:\n{os.listdir(SOURCES)}")
+    set_source_file(source_file)
 
     # Read source file
     logging.info("Reading source files %s", SOURCE_FILE)
     with open(SOURCE_FILE, 'r') as stream:
         models = yaml.safe_load(stream)
+    logging.debug(f"Source file:\n{models}")
 
     # Define pool processes
     logging.info("Computing skimming pool of models")
@@ -105,8 +117,9 @@ def skim_tco3(
     # Loading of DataArray and attributes
     call = ["skim_tco3", '-v', VERBOSITY, '-o', output_file, '-n', variable]
     operations = ["--{}".format(x) for x in operations]
+    paths = [f"{SOURCES}/{paths}"]
     if RUN_SKIMMING:
-        subprocess.run([*call, *operations, *[paths]], check=True)
+        subprocess.run([*call, *operations, *paths], check=True)
 
     # End of program
     return plot_metadata

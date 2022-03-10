@@ -1,4 +1,20 @@
 #!/bin/bash
+#SBATCH --job-name=o3sources
+#SBATCH --output="parprog_hybrid_%j.out"
+#SBATCH --constraint=LSDF
+#SBATCH --ntasks=4
+#SBATCH --cpus-per-task=10
+#SBATCH --time=01:00:00
+#SBATCH --mem=30gb
+#SBATCH --export=ALL,MPI_MODULE=mpi/openmpi/3.1
+
+# Use when a defined module environment related to OpenMPI is wished
+module load ${MPI_MODULE}
+export MPIRUN_OPTIONS="--bind-to core --map-by socket:PE=${SLURM_CPUS_PER_TASK} -report-bindings"
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
+export NUM_CORES=${SLURM_NTASKS}*${SLURM_CPUS_PER_TASK}
+
+
 ##########
 # Script that runs the test via a udocker container.
 #
@@ -8,17 +24,17 @@
 ##########
 
 # ------------------------
-CONTAINER="o3sources:testing"
+CONTAINER="o3sources:dev"
 CONTAINER_STDOUT="$CONTAINER.out"
 CONTAINER_STDERR="$CONTAINER.err"
 
 # According to https://wiki.scc.kit.edu/hpc/index.php/ForHLR_-_Hardware_and_Architecture#LSDF_online_storage_2
 # we can use $LSDF environment setting
-SOURCES_FILE="$PWD/test_datafiles/sources.yaml"
-SOURCES_FOLDER="$PWD/test_datafiles"
-SKIMMED_FOLDER="$PWD/Skimmed"
+SOURCES_FILE="${LSDF}/kit/imk-asf/projects/O3as/03sources/sources.yaml"
+SOURCES_FOLDER="${LSDF}/kit/imk-asf/projects/O3as"
+SKIMMED_FOLDER="${LSDF}/kit/imk-asf/projects/O3as/Skimmed-dev"
 
-DOCKER_OPTIONS="
+UDOCKER_OPTIONS="
     --user=application \
     --volume=${SOURCES_FILE}:/app/sources.yaml \
     --volume=${SOURCES_FOLDER}:/app/Sources \
@@ -36,13 +52,20 @@ CONTAINER_OPTIONS="
 
 ##### RUN THE JOB #####
 echo "==========================================="
-echo "=> docker container: $CONTAINER"
+echo "=> udocker container: $CONTAINER"
 echo "=> Running on: $HOSTNAME"
+echo "=> With: Cores     == ${NUM_CORES}"
+echo "         MPI-tasks == ${SLURM_NTASKS}"
+echo "=>       Threads   == ${OMP_NUM_THREADS}"
 echo "==========================================="
-EXECUTABLE="docker run --rm ${DOCKER_OPTIONS} ${CONTAINER} ${CONTAINER_OPTIONS}"
 
-echo $EXECUTABLE
-exec $EXECUTABLE \
+#echo "Setting up F3 execmode"
+#udocker setup --execmode=F3 $UCONTAINER  # Setup another execmode, if needed
+EXECUTABLE="udocker run ${UDOCKER_OPTIONS} ${CONTAINER} ${CONTAINER_OPTIONS}"
+
+startexe="mpirun -n ${SLURM_NTASKS} ${MPIRUN_OPTIONS} ${EXECUTABLE}"
+echo $startexe
+exec $startexe \
 1>> ${CONTAINER_STDOUT} \
 2>> ${CONTAINER_STDERR}
 echo "Done with the script."

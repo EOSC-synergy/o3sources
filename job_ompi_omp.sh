@@ -24,7 +24,7 @@ export NUM_CORES=${SLURM_NTASKS}*${SLURM_CPUS_PER_TASK}
 ##########
 
 # ------------------------
-CONTAINER="o3sources:dev"
+CONTAINER="o3sources"
 CONTAINER_STDOUT="$CONTAINER.out"
 CONTAINER_STDERR="$CONTAINER.err"
 
@@ -38,7 +38,7 @@ UDOCKER_OPTIONS="
     --user=application \
     --volume=${SOURCES_FILE}:/app/sources.yaml \
     --volume=${SOURCES_FOLDER}:/app/Sources \
-    --volume=${SKIMMED_FOLDER}:/app/Skimmed_dev \
+    --volume=${SKIMMED_FOLDER}:/app/Skimmed \
     --env RUN_STANDARD=True \
     --env RUN_SKIMMING=True \
     --env RUN_METADATA=True \

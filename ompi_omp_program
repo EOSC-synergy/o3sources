@@ -93,6 +93,7 @@ def run_command(
     logging.info("End of program")
 
 
+# Worker actions ----------------------------------------------------
 def worker_call(model, source, operations=[], tco3_zm=None):
     logger = logging.getLogger(f"Skimming:{model}")
     output_folder = Path(f"{OUTPUT}/{model}")
@@ -143,6 +144,7 @@ def metadata(
     return None
 
 
+# Main call ---------------------------------------------------------
 if __name__ == '__main__':
     args = parser.parse_args()
     # try:

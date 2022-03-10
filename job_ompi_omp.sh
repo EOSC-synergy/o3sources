@@ -24,25 +24,31 @@ export NUM_CORES=${SLURM_NTASKS}*${SLURM_CPUS_PER_TASK}
 ##########
 
 # ------------------------
-CONTAINER="o3sources"
+CONTAINER="o3sources:dev"
 CONTAINER_STDOUT="$CONTAINER.out"
 CONTAINER_STDERR="$CONTAINER.err"
 
 # According to https://wiki.scc.kit.edu/hpc/index.php/ForHLR_-_Hardware_and_Architecture#LSDF_online_storage_2
 # we can use $LSDF environment setting
 SOURCES_FILE="${LSDF}/kit/imk-asf/projects/O3as/03sources/sources.yaml"
-MODELS_FOLDER="${LSDF}/kit/imk-asf/projects/O3as"
+SOURCES_FOLDER="${LSDF}/kit/imk-asf/projects/O3as"
+SKIMMED_FOLDER="${LSDF}/kit/imk-asf/projects/O3as/Skimmed"
 
 UDOCKER_OPTIONS="
     --user=application \
-    --volume=${SOURCES_FILE}:/app/Data/sources.yaml \
-    --volume=${MODELS_FOLDER}:/app/Data \
+    --volume=${SOURCES_FILE}:/app/sources.yaml \
+    --volume=${SOURCES_FOLDER}:/app/Sources \
+    --volume=${SKIMMED_FOLDER}:/app/Skimmed_dev \
     --env RUN_STANDARD=True \
     --env RUN_SKIMMING=True \
-    --env RUN_METADATA=True"
+    --env RUN_METADATA=True \
+"
 
 CONTAINER_OPTIONS="
-    --verbosity=DEBUG"
+    --verbosity=INFO \
+    --sources=Sources \
+    --output=Skimmed \
+"
 
 ##### RUN THE JOB #####
 echo "==========================================="
@@ -55,7 +61,6 @@ echo "==========================================="
 
 #echo "Setting up F3 execmode"
 #udocker setup --execmode=F3 $UCONTAINER  # Setup another execmode, if needed
-
 EXECUTABLE="udocker run ${UDOCKER_OPTIONS} ${CONTAINER} ${CONTAINER_OPTIONS}"
 
 startexe="mpirun -n ${SLURM_NTASKS} ${MPIRUN_OPTIONS} ${EXECUTABLE}"

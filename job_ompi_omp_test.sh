@@ -1,13 +1,13 @@
 #!/bin/bash
-##########
+##############################################################################
 # Script that runs the test via a udocker container.
 #
 # Please, first pull the image and create container!
 # udocker pull $DOCKER_IMAGE
 # udocker create --name=$UCONTAINER $DOCKER_IMAGE
-##########
+##############################################################################
 
-# ------------------------
+# ----------------------------------------------------------------------------
 CONTAINER="o3sources:testing"
 CONTAINER_STDOUT="$CONTAINER.out"
 CONTAINER_STDERR="$CONTAINER.err"
@@ -34,15 +34,15 @@ CONTAINER_OPTIONS="
     --output=Skimmed \
 "
 
-##### RUN THE JOB #####
-echo "==========================================="
-echo "=> docker container: $CONTAINER"
+##### RUN THE JOB ############################################################
+echo"========================================================================"
+echo "=> udocker container: $CONTAINER"
 echo "=> Running on: $HOSTNAME"
-echo "==========================================="
+echo "========================================================================"
 EXECUTABLE="docker run --rm ${DOCKER_OPTIONS} ${CONTAINER} ${CONTAINER_OPTIONS}"
 
 echo $EXECUTABLE
 exec $EXECUTABLE \
-1>> ${CONTAINER_STDOUT} \
-2>> ${CONTAINER_STDERR}
+    1>>${CONTAINER_STDOUT} \
+    2>>${CONTAINER_STDERR}
 echo "Done with the script."

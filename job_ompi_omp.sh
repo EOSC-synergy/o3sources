@@ -6,25 +6,18 @@
 #SBATCH --cpus-per-task=10
 #SBATCH --time=01:00:00
 #SBATCH --mem=30gb
-#SBATCH --export=ALL,MPI_MODULE=mpi/openmpi/3.1
+#SBATCH --partition=cpuonly
 
-# Use when a defined module environment related to OpenMPI is wished
-module load ${MPI_MODULE}
-export MPIRUN_OPTIONS="--bind-to core --map-by socket:PE=${SLURM_CPUS_PER_TASK} -report-bindings"
-export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
-export NUM_CORES=${SLURM_NTASKS}*${SLURM_CPUS_PER_TASK}
-
-
-##########
+##############################################################################
 # Script that runs the test via a udocker container.
 #
 # Please, first pull the image and create container!
 # udocker pull $DOCKER_IMAGE
 # udocker create --name=$UCONTAINER $DOCKER_IMAGE
-##########
+##############################################################################
 
-# ------------------------
-CONTAINER="o3sources"
+# ----------------------------------------------------------------------------
+CONTAINER="o3skim"
 CONTAINER_STDOUT="$CONTAINER.out"
 CONTAINER_STDERR="$CONTAINER.err"
 
@@ -50,22 +43,25 @@ CONTAINER_OPTIONS="
     --output=Skimmed \
 "
 
-##### RUN THE JOB #####
-echo "==========================================="
+##### RUN THE JOB ############################################################
+echo"========================================================================"
 echo "=> udocker container: $CONTAINER"
 echo "=> Running on: $HOSTNAME"
-echo "=> With: Cores     == ${NUM_CORES}"
-echo "         MPI-tasks == ${SLURM_NTASKS}"
-echo "=>       Threads   == ${OMP_NUM_THREADS}"
-echo "==========================================="
+echo "=> Account name: $SLURM_JOB_ACCOUNT"
+echo "=> With: Processes per node  == ${SLURM_JOB_CPUS_PER_NODE}"
+echo "=>       Nodes dedicated     == ${SLURM_JOB_NUM_NODES}"
+echo "=>       Memory per node     == ${SLURM_MEM_PER_NODE}"
+echo "=>       Processes dedicated == ${SLURM_NPROCS}"
+echo "=>       CPUs per task       == ${SLURM_CPUS_PER_TASK}"
+echo "=>       Tasks available     == ${SLURM_NTASKS}"
+echo "========================================================================"
 
 #echo "Setting up F3 execmode"
 #udocker setup --execmode=F3 $UCONTAINER  # Setup another execmode, if needed
 EXECUTABLE="udocker run ${UDOCKER_OPTIONS} ${CONTAINER} ${CONTAINER_OPTIONS}"
 
-startexe="mpirun -n ${SLURM_NTASKS} ${MPIRUN_OPTIONS} ${EXECUTABLE}"
-echo $startexe
-exec $startexe \
-1>> ${CONTAINER_STDOUT} \
-2>> ${CONTAINER_STDERR}
+echo $EXECUTABLE
+exec $EXECUTABLE \
+    1>>${CONTAINER_STDOUT} \
+    2>>${CONTAINER_STDERR}
 echo "Done with the script."

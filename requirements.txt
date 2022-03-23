@@ -1,4 +1,4 @@
-git+https://git.scc.kit.edu/synergy.o3as/o3skim.git@0.5.2
+git+https://git.scc.kit.edu/synergy.o3as/o3skim.git@0.6.2
 dask[distributed] ~= 2022.1.0
 environs ~= 9.5.0
 udocker ~= 1.3.1

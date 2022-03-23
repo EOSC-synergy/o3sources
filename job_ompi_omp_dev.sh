@@ -32,7 +32,6 @@ UDOCKER_OPTIONS="
     --volume=${SOURCES_FILE}:/app/sources.yaml \
     --volume=${SOURCES_FOLDER}:/app/Sources \
     --volume=${SKIMMED_FOLDER}:/app/Skimmed \
-    --env RUN_STANDARD=True \
     --env RUN_SKIMMING=True \
     --env RUN_METADATA=True \
 "

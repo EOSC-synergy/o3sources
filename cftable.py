@@ -52,7 +52,6 @@ def run_command(verbosity, output, skimmed, **options):
         dask.delayed(worker_call)(skimmed, model) 
         for model in models
     ])
-    # worker_call(skimmed, models[0])
 
     # Saving into output file
     logging.info("Saving info to %s", output)
@@ -66,6 +65,13 @@ def run_command(verbosity, output, skimmed, **options):
 
 # Worker actions ----------------------------------------------------
 def worker_call(skimmed, model):
+    try:
+        return worker_command(skimmed, model)
+    except FileNotFoundError:
+        return {f"{skimmed}/{model}": {}}
+
+
+def worker_command(skimmed, model):
     with open(f"{skimmed}/{model}/cfchecks_output.txt", 'r') as cfcheck:
         files_info = {}
         for line in cfcheck:

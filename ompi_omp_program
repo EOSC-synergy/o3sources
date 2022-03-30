@@ -3,6 +3,7 @@
 Script to perform o3skiming on the o3as database.
 """
 import argparse
+import functools
 import logging
 import os
 import subprocess
@@ -138,11 +139,12 @@ def skim_tco3(
     os.makedirs(Path(output_folder), exist_ok=True)
 
     # Loading of DataArray and attributes
-    call = ["skim_tco3", '-v', VERBOSITY, '-o', output_file, '-n', variable]
-    operations = ["--{}".format(x) for x in operations]
-    paths = [f"{SOURCES}/{paths}"]
+    exec = f"skim_tco3 -v={VERBOSITY} -o={output_file} -n={variable}"
+    operations = functools.reduce(lambda acc, x: acc + f" --{x}", operations, "")
+    paths = f"{SOURCES}/{paths}"
+    call = f"{exec} {operations} {paths}"
     if RUN_SKIMMING:
-        subprocess.run([*call, *operations, *paths], check=True)
+        subprocess.run(call, shell=True, check=True)
 
     # End of program
     return plot_metadata

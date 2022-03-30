@@ -19,6 +19,7 @@ env.read_env()
 
 RUN_SKIMMING = env.bool("RUN_SKIMMING", default=True)
 RUN_METADATA = env.bool("RUN_METADATA", default=True)
+RUN_CFCHECKS = env.bool("RUN_CFCHECKS", default=True)
 
 def set_verbosity(value):
     global VERBOSITY
@@ -97,10 +98,31 @@ def run_command(
 def worker_call(model, source, operations=[], tco3_zm=None):
     logger = logging.getLogger(f"Skimming:{model}")
     output_folder = Path(f"{OUTPUT}/{model}")
+    logger.info(f"Checking sources on directory:\n{output_folder}")
+    eval_tco3(output_folder, **tco3_zm)
     logger.info(f"Skimming output on directory:\n{output_folder}")
     tco3_pm = skim_tco3(output_folder, operations, **tco3_zm) 
     logger.info(f"Saving metadata on directory:\n{output_folder}")
     metadata(output_folder, tco3_zm=tco3_pm) 
+
+
+def eval_tco3(
+    output_folder,  # Output location for the check file
+    paths,  # Path with the CF netCDF files
+    **kwargs,  # Unused arguments
+):
+    # Common operations
+    output_file = f"{output_folder}/cfchecks_output.txt"
+    os.makedirs(Path(output_folder), exist_ok=True)
+
+    # Loading of DataArray and attributes
+    paths = f"{SOURCES}/{paths}"
+    call = f"cfchecks --version=auto {paths}"
+    with open(output_file, "w") as f:
+        subprocess.run(call, shell=True, stdout=f)
+
+    # End of program
+    return None
 
 
 def skim_tco3(

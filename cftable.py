@@ -85,11 +85,12 @@ def worker_command(skimmed, model):
     return files_info
 
 
-def decode(cfcheck, state = {}):
+def decode(cfcheck):
+    state={}
     return decode_versions(cfcheck, state)
 
 
-def decode_versions(cfcheck, state={}):
+def decode_versions(cfcheck, state):
     line = cfcheck.readline()
     if "Checking against CF Version" in line:
         state["cf_version"] = line[28:-1]
@@ -101,10 +102,12 @@ def decode_versions(cfcheck, state={}):
         state["stdregn_tb"] = line[45:-1]
     elif "------------------" in line:
         return decode_variables(cfcheck, state)
+    elif not line:
+        return state
     return decode_versions(cfcheck, state)
 
 
-def decode_variables(cfcheck, state={}):
+def decode_variables(cfcheck, state):
     line = cfcheck.readline()
     if "Checking variable" in line:
         cfcheck.readline()  # Ignore next line

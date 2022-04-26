@@ -56,7 +56,7 @@ def run_command(verbosity, output, skimmed, **options):
     # Saving into output file
     logging.info("Saving info to %s", output)
     checks = {k: v for d in checks_list for k, v in d.items()}
-    pd.DataFrame(checks).to_csv(output, sep=';')
+    pd.DataFrame(checks).transpose().to_csv(output, sep=';')
 
 
     # End of program

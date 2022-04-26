@@ -1,5 +1,6 @@
 .vscode
 Skimmed
+Skimmed-dev
 test_datafiles/*
 !test_datafiles/sources.yaml
 dask-worker-space

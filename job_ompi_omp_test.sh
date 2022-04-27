@@ -36,7 +36,7 @@ CONTAINER_OPTIONS="
 
 ##### RUN THE JOB ############################################################
 echo"========================================================================"
-echo "=> udocker container: $CONTAINER"
+echo "=> docker container: $CONTAINER"
 echo "=> Running on: $HOSTNAME"
 echo "========================================================================"
 EXECUTABLE="docker run --rm ${DOCKER_OPTIONS} ${CONTAINER} ${CONTAINER_OPTIONS}"

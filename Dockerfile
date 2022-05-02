@@ -32,6 +32,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         ca-certificates \
         gcc g++ \
         libproj-dev proj-data proj-bin \
+        libudunits2-0 udunits-bin \
         libgeos-dev \
         libeccodes-dev \
         git && \

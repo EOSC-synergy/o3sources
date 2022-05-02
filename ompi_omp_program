@@ -4,6 +4,7 @@ Script to perform o3skiming on the o3as database.
 """
 import argparse
 import functools
+import glob
 import logging
 import os
 import subprocess
@@ -117,10 +118,11 @@ def eval_tco3(
     os.makedirs(Path(output_folder), exist_ok=True)
 
     # Loading of DataArray and attributes
-    paths = f"{SOURCES}/{paths}"
-    call = f"cfchecks --version=auto {paths}"
+    paths = glob.glob(f"{SOURCES}/{paths}")
+    call = ["cfchecks", "--version=auto"] + paths
     with open(output_file, "w") as f:
-        subprocess.run(call, shell=True, stdout=f)
+        p = subprocess.run(call, stdout=f, stderr=subprocess.PIPE)
+        logging.debug(p.stderr.decode())
 
     # End of program
     return None

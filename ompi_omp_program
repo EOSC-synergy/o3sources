@@ -23,51 +23,67 @@ RUN_SKIMMING = env.bool("RUN_SKIMMING", default=True)
 RUN_METADATA = env.bool("RUN_METADATA", default=True)
 RUN_CFCHECKS = env.bool("RUN_CFCHECKS", default=True)
 
+
 def set_verbosity(value):
     global VERBOSITY
     VERBOSITY = value
     logging.basicConfig(
         level=getattr(logging, VERBOSITY),
-        format='%(asctime)s main ---- %(levelname)-8s %(message)s',
+        format="%(asctime)s main ---- %(levelname)-8s %(message)s",
     )
+
 
 def set_output(value):
     global OUTPUT
     OUTPUT = Path(value)
 
+
 def set_sources(value):
     global SOURCES
     SOURCES = Path(value)
 
+
 def set_source_file(value):
     global SOURCE_FILE
-    SOURCE_FILE = Path(value)     
+    SOURCE_FILE = Path(value)
 
 
 # Script arguments definition ---------------------------------------
 parser = argparse.ArgumentParser(
-    prog='PROG', description=__doc__,
+    prog="PROG",
+    description=__doc__,
     formatter_class=argparse.RawDescriptionHelpFormatter,
-    epilog="See '<command> --help' to read about a specific sub-command.")
+    epilog="See '<command> --help' to read about a specific sub-command.",
+)
 parser.add_argument(
-    "-v", "--verbosity", type=str, default='INFO', 
-    choices=['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'],
-    help="Sets the logging level (default: %(default)s)")
+    *["-v", "--verbosity"],
+    help="Sets the logging level (default: %(default)s)",
+    type=str,
+    choices=["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"],
+    default="INFO",
+)
 parser.add_argument(
-    "-o", "--output", type=str, default='Skimmed',
-    help="Output folder for skimmed files (default: %(default)s)")
+    *["-o", "--output"],
+    help="Output folder for skimmed files (default: %(default)s)",
+    type=str,
+    default="Skimmed",
+)
 parser.add_argument(
-    "-s", "--sources", type=str, default='Sources',
-    help="Sources folder for input paths (default: %(default)s)")
+    *["-s", "--sources"],
+    help="Sources folder for input paths (default: %(default)s)",
+    type=str,
+    default="Sources",
+)
 parser.add_argument(
-    "--source_file", type=str, default='sources.yaml',
-    help="Path to source file with skimming configurations")
+    "--source_file",
+    help="Path to source file with skimming configurations",
+    type=str,
+    default="sources.yaml",
+)
 
 
 # Script command actions --------------------------------------------
-def run_command(
-    verbosity, output, sources, source_file, **options
-):
+def run_command(verbosity, output, sources, source_file, **options):
     # Common operations
     set_verbosity(verbosity)
     logging.info("Program start")
@@ -81,31 +97,38 @@ def run_command(
 
     # Read source file
     logging.info("Reading source files %s", SOURCE_FILE)
-    with open(SOURCE_FILE, 'r') as stream:
+    with open(SOURCE_FILE, "r") as stream:
         models = yaml.safe_load(stream)
     logging.debug(f"Source file:\n{models}")
 
     # Define pool processes
     logging.info("Computing skimming pool of models")
-    dask.compute(*[
-        dask.delayed(worker_call)(model, **kwargs) 
-        for model, kwargs in models.items()
-    ])
+    dask.compute(
+        *[
+            dask.delayed(worker_call)(model, **kwargs)
+            for model, kwargs in models.items()
+        ]
+    )
 
     # End of program
     logging.info("End of program")
 
 
 # Worker actions ----------------------------------------------------
-def worker_call(model, source, operations=[], tco3_zm=None):
+def worker_call(model, source, operations=[], tco3_zm=None, vmro3_zm=None):
     logger = logging.getLogger(f"Skimming:{model}")
     output_folder = Path(f"{OUTPUT}/{model}")
     logger.info(f"Checking sources on directory:\n{output_folder}")
     eval_tco3(output_folder, **tco3_zm)
-    logger.info(f"Skimming output on directory:\n{output_folder}")
-    tco3_pm = skim_tco3(output_folder, operations, **tco3_zm) 
+    meta = {}
+    if tco3_zm is not None:
+        logger.info(f"TCO3 Skimming output on directory:\n{output_folder}")
+        meta["tco3_pm"] = skim_tco3(output_folder, operations, **tco3_zm)
+    if vmro3_zm is not None:
+        logger.info(f"VMRO3 Skimming output on directory:\n{output_folder}")
+        meta["vmro3_pm"] = skim_vmro3(output_folder, operations, **vmro3_zm)
     logger.info(f"Saving metadata on directory:\n{output_folder}")
-    metadata(output_folder, tco3_zm=tco3_pm) 
+    metadata(output_folder, **meta)
 
 
 def eval_tco3(
@@ -130,10 +153,10 @@ def eval_tco3(
 
 def skim_tco3(
     output_folder,  # Output location for the skimmed file
-    operations, # Skimming operations to perform
-    paths,      # Path with the CF netCDF files
-    variable,   # Variable with tco3 data to skim
-    file_name="tco3_zm.nc",  # Name of output file 
+    operations,  # Skimming operations to perform
+    paths,  # Path with the CF netCDF files
+    variable,  # Variable with tco3 data to skim
+    file_name="tco3_zm.nc",  # Name of output file
     **plot_metadata,  # Plot metadata for tco3_zm
 ):
     # Common operations
@@ -152,6 +175,30 @@ def skim_tco3(
     return plot_metadata
 
 
+def skim_vmro3(
+    output_folder,  # Output location for the skimmed file
+    operations,  # Skimming operations to perform
+    paths,  # Path with the CF netCDF files
+    variable,  # Variable with vmro3 data to skim
+    file_name="vmro3_zm.nc",  # Name of output file
+    **plot_metadata,  # Plot metadata for vmro3_zm
+):
+    # Common operations
+    output_file = f"{output_folder}/{file_name}"
+    os.makedirs(Path(output_folder), exist_ok=True)
+
+    # Loading of DataArray and attributes
+    exec = f"skim_vmro3 -v={VERBOSITY} -o={output_file} -n={variable}"
+    operations = functools.reduce(lambda acc, x: acc + f" --{x}", operations, "")
+    paths = f"{SOURCES}/{paths}"
+    call = f"{exec} {operations} {paths}"
+    # if RUN_SKIMMING:  # TODO: implement skim_vmro3 process in o3skim
+    #     subprocess.run(call, shell=True, check=True)
+
+    # End of program
+    return plot_metadata
+
+
 def metadata(
     output_folder,  # Output location for the skimmed file
     file_name="metadata.yaml",  # Name of output file
@@ -163,7 +210,7 @@ def metadata(
 
     # Saving metadata in model output
     if RUN_METADATA:
-        with open(output_file, 'w') as outfile:
+        with open(output_file, "w") as outfile:
             yaml.dump(metadata, outfile, default_flow_style=False)
 
     # End of program
@@ -171,7 +218,7 @@ def metadata(
 
 
 # Main call ---------------------------------------------------------
-if __name__ == '__main__':
+if __name__ == "__main__":
     args = parser.parse_args()
     # try:
     run_command(**vars(args))

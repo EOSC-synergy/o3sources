@@ -8,6 +8,12 @@ CCMI-1_ACCESS_ACCESS-CCM-refC2:
     plot_color: purple
     plot_linestyle: solid
     plot_marker: o
+  vmro3_zm:
+    paths: CCMI-1_ACCESS_ACCESS-CCM-refC2/*.nc
+    variable: vmro3
+    plot_color: darkblue
+    plot_linestyle: solid
+    plot_marker: '*'
 CCMI-1_ACCESS_ACCESS-CCM-senC2fGHG:
   operations:
   - lon_mean

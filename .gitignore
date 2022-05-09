@@ -2,8 +2,8 @@
 Skimmed
 Skimmed-dev
 test_datafiles/*
-!test_datafiles/sources.yaml
+!test_datafiles/Data sources - Sources.csv
 dask-worker-space
-*.csv
+*.back
 *.err
 *.out

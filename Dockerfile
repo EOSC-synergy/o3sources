@@ -56,8 +56,7 @@ USER ${user}
 RUN mkdir -p /app/Sources
 RUN mkdir -p /app/Skimmed
 
-WORKDIR /app
-COPY ompi_omp_program ompi_omp_program
-
 # Start default script
-ENTRYPOINT [ "./ompi_omp_program" ]
+COPY ./scripts/tco3_zm.py /docker-entrypoint
+WORKDIR /app
+ENTRYPOINT ["/docker-entrypoint"]

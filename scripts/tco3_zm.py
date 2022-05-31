@@ -100,6 +100,10 @@ def worker(index, sources, output, load_function=None, paths=None, **_):
     dataset = o3skim.loads.__dict__[load_function](f"{sources}/{paths}")
     skimmed = o3skim.lon_mean(dataset)
 
+    # Variable name standardization
+    logger.debug(f"Renaming var 'tco3' to 'tco3_zm'")
+    skimmed = skimmed.cf.rename({'tco3': "tco3_zm"})
+
     # Skimming file saving
     logger.info(f"Saving skimmed dataset at {output_folder}")
     skimmed.to_netcdf(f"{output_folder}/tco3_zm.nc")

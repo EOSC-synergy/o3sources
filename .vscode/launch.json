@@ -1,0 +1,40 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        { // Sources CF Checks Script
+            "name": "CF Checks",
+            "type": "python",
+            "request": "launch",
+            "program": "scripts/cfchecks_output.py",
+            "cwd": "${projectsFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "args": [
+                "--source_file=03as/03sources/Data sources - Sources.csv",
+                "--sources=O3as",
+                "--output=O3as/Skimmed-dev",
+                "--verbosity=DEBUG",
+            ]
+        },
+        { // TCO3 Data Skimming Script
+            "name": "Skim data",
+            "type": "python",
+            "request": "launch",
+            "program": "scripts/tco3_zm.py",
+            "cwd": "${projectsFolder}",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "args": [
+                "--source_file=03as/03sources/Data sources - Sources.csv",
+                "--sources=O3as",
+                "--output=O3as/Skimmed-dev",
+                "--verbosity=DEBUG",
+            ]
+        },
+    ]
+}

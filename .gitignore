@@ -1,8 +1,7 @@
-Skimmed
-Skimmed-dev
-test_datafiles/*
-!test_datafiles/Data sources - Sources.csv
 dask-worker-space
+*cfchecks_output.txt
+*sbuv.v86.mod_v10.70-18.za.txt
+*.nc
 *.back
 *.err
 *.out

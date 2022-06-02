@@ -9,14 +9,13 @@
             "type": "python",
             "request": "launch",
             "program": "scripts/cfchecks_output.py",
-            "cwd": "${projectsFolder}",
             "env": {
                 "PYTHONPATH": "${workspaceFolder}"
             },
             "args": [
-                "--source_file=03as/03sources/Data sources - Sources.csv",
-                "--sources=O3as",
-                "--output=O3as/Skimmed-dev",
+                "--source_file=${input:projectFolder}/03sources/Data sources - Sources.csv",
+                "--sources=${input:projectFolder}",
+                "--output=${input:projectFolder}/Skimmed-dev",
                 "--verbosity=DEBUG",
             ]
         },
@@ -25,16 +24,23 @@
             "type": "python",
             "request": "launch",
             "program": "scripts/tco3_zm.py",
-            "cwd": "${projectsFolder}",
             "env": {
                 "PYTHONPATH": "${workspaceFolder}"
             },
             "args": [
-                "--source_file=03as/03sources/Data sources - Sources.csv",
-                "--sources=O3as",
-                "--output=O3as/Skimmed-dev",
+                "--source_file=${input:projectFolder}/03sources/Data sources - Sources.csv",
+                "--sources=${input:projectFolder}",
+                "--output=${input:projectFolder}/Skimmed-dev",
                 "--verbosity=DEBUG",
             ]
         },
+    ],
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "projectFolder",
+            "description": "Folder with o3as project files.",
+            "default": "${workspaceFolder}/o3as"
+        }
     ]
 }

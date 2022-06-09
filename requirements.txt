@@ -1,4 +1,4 @@
-git+https://git.scc.kit.edu/synergy.o3as/o3skim.git@0.7.3
+git+https://git.scc.kit.edu/synergy.o3as/o3skim.git@0.8.3
 environs ~= 9.5.0
 numpy ~= 1.20.1
 cython ~= 0.29.28

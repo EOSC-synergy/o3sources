@@ -3,50 +3,31 @@
 Sources file versioning repository. <br>
 Branches and versions:
  
- - **master**: Last & official version of source.yaml file
- - **CCMI**: Only models from CCMI source
+ - **master**: Last & official version of source.csv file
+ - **<>**: Specific release version
 
 
-# Produce sources.yaml file from .csv (Google sheet)
-To simplify maintenance of sources.yaml, a python script is created 
-to generated from other typical table format (such csv).
-
-This script collects the following columns to group them as the key
-fields of the sources file:
-
-- **source**: Sources the model belongs to (ie. CCMI-1).
-- **model**: Model name for the data to skim (ei. ACCESS-CCM-refC2).
-- **variable**: Variable to be skimmed (ei. tco3_zm).
-- **name**: Variable name where to find the data on the original dataset.
-- **paths**: Regex with the NetCDF files with the original dataset.
-- **coordinates**: Array with variable coordinates map (ei. [time, lat, lon]).
-
-The rest of columns are added as metadata at variable level.
-
-Usage example:
-```sh
-$ ./sources.py -v INFO sources.csv 
-2021-02-08 12:00:18,044  INFO     Reading document
-2021-02-08 12:00:18,045  INFO     Grouping document sources
-2021-02-08 12:00:18,046  INFO     Saving file to sources.yaml
-2021-02-08 12:00:18,082  INFO     End of program
-```
-
-To get more information about usage use the `--help` command:
-```sh
-$ ./sources.py --help
-```
+# Produce sources.csv file
+To simplify maintenance of `sources.csv`, a the file is just a soft link
+to the file `Data sources - Sources.csv`. This is the `standard` name
+when downloading from sources such excel/sheets. The soft link is a simple
+way to reference the file without spaces, which generate conflicts in
+scripts.
 
 
-# Run data skimming from sources.yaml file
-This repository includes an script in charge of performing skimming over the 
-models database. It comes in container format with the required tools 
-installed so it can be deployed easily everywhere.
+# Run data skimming from sources file
+This repository includes scripts in charge of performing checks and skimming
+over the models database. They come as container format so can be executed
+easily everywhere.
+
+Additionally `Dockerfile` generates a container with all skimming tools
+installed for additional purposes.
+
 
 ### 📝 Table of Contents
 - [Build using docker](#build)
 - [Run using udocker](#deployment)
-- [Run with SLURM & MPI](#slurm)
+- [Run with SLURM](#slurm)
 
 ### Prerequisites
 To use the container, you need the following systems and container technologies:
@@ -77,6 +58,21 @@ REPOSITORY                         TAG                 IMAGE ID            CREAT
 o3sources                          latest              69587025a70a        xx seconds ago      557MB
 ...
 ```
+Then you can use this container to execute the provided scripts or generate
+images for each one, for example:
+```sh
+$ docker build --tag cfchecks --file Dockerfile.cfchecks .
+...
+Successfully built ...
+Successfully tagged cfchecks:latest
+```
+```sh
+$ docker build --tag tco3_zm --file Dockerfile.tco3_zm .
+...
+Successfully built ...
+Successfully tagged tco3_zm:latest
+```
+
 
 ## Run using udocker <a name = "deployment"></a>
 To deploy the the application using __udocker__ at the __Runtime machine__ you need:
@@ -98,51 +94,38 @@ Once the repository is added and the image downloaded, create the local containe
 $ udocker create --name=o3sources o3as/o3sources
 fa42a912-b0d4-3bfb-987f-1c243863802d
 ```
+> You can apply the same procedure for `cfchecks` and `tco3_zm` images.
 
-Finally, run the container. Note the described _Data_, and _sources.yaml_ have
+Finally, run a container. Note the described _Data_, and _sources.yaml_ have
 to be provided. Also it is needed to specify the user _application_ should run
 inside the container:
 ```sh
 $ udocker run \
   --user=application \
-  --volume=${SOURCES_FILE}:/app/Data/sources.yaml \
-  --volume=${DATA}:/app/Data \
-  o3sources
+  --volume=${SOURCES_FILE}:/app/sources.csv \
+  --volume=${SOURCES_FOLDER}:/app/Sources \
+  --volume=${SKIMMED_FOLDER}:/app/Skimmed \
+  o3as/tco3_zm:latest
 ...
-executing: ompi_omp_program
-...
-2021-03-24 11:31:03,203 main ---- INFO     Reading source files sources.yaml
+2021-03-24 11:31:03,203 main ---- INFO     Reading source files sources.csv
 ...
 ```
 
-The service produces 2 output folders:
- - ${DATA}/Standard: With the standardized models.
- - ${DATA}/Skimmed: With the skimmed models.
-
-For the main function description and commands help you can call:
+For the script function description and commands help you can call:
 ```sh  
-$ udocker run --user=application o3sources --help
+$ udocker run --user=application o3as/tco3_zm:latest --help
 ...
 ```
 
-## Running with SLURM and MPI <a name = "slurm"></a>
-You can run the skimming process on SLURM and MPI environment. To do so, you
+## Running with SLURM <a name = "slurm"></a>
+You can run the skimming process on SLURM environment. To do so, you
 can edit the file ´job_ompi_omp.sh` with your configuration and call:
 
 ```sh
-$ sbatch -p normal job_ompi_omp.sh
+$ sbatch -p <your_partition> job_ompi_omp.sh
 Submitted batch job .....
 ```
 
 > Note that to run the script you need to have udocker installed, configured and
-> a o3sources container available.
-
-> To disable MPI, you can set --ntasks=1 on SBATCH configuration.
-
-> You can use ENV variables to disable skimming steps 
->  - RUN_STANDARD=False to disable standardization step
->  - RUN_SKIMMING=False to disable skimming step
->  - RUN_METADATA=False to disable metadata parsing step
-
-> Note RUN_SKIMMING step cannot work without RUN_STANDARD step.
+> o3as/cfchecks, o3as/tco3_zm containers available.
 

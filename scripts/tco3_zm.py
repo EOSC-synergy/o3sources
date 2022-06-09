@@ -54,7 +54,7 @@ parser.add_argument(
     "--sources_file",
     help="Path to CSV source file with skimming configurations",
     type=str,
-    default="Data sources - Sources.csv",
+    default="sources.csv",
 )
 
 

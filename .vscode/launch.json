@@ -13,7 +13,7 @@
                 "PYTHONPATH": "${workspaceFolder}"
             },
             "args": [
-                "--sources_file=${input:projectFolder}/03sources/Data sources - Sources.csv",
+                "--sources_file=${input:projectFolder}/03sources/sources.csv",
                 "--sources=${input:projectFolder}",
                 "--output=${input:projectFolder}/Skimmed-dev",
                 "--verbosity=DEBUG",
@@ -28,7 +28,7 @@
                 "PYTHONPATH": "${workspaceFolder}"
             },
             "args": [
-                "--sources_file=${input:projectFolder}/03sources/Data sources - Sources.csv",
+                "--sources_file=${input:projectFolder}/03sources/sources.csv",
                 "--sources=${input:projectFolder}",
                 "--output=${input:projectFolder}/Skimmed-dev",
                 "--verbosity=DEBUG",

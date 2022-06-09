@@ -1,0 +1,7 @@
+# Dockerfile has three Arguments: base, tag, branch
+#
+# To build the image:
+# $ docker build -t o3sources .  # if not built already
+# $ docker build -t <name> -f Dockerfile.cfchecks .
+FROM o3sources:latest
+ENTRYPOINT ["/app/scripts/cfchecks.py"]

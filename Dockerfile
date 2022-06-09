@@ -57,6 +57,5 @@ RUN mkdir -p /app/Sources
 RUN mkdir -p /app/Skimmed
 
 # Start default script
-COPY ./scripts/tco3_zm.py /docker-entrypoint
+COPY ./scripts /app/scripts
 WORKDIR /app
-ENTRYPOINT ["/docker-entrypoint"]

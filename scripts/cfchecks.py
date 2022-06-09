@@ -50,7 +50,7 @@ parser.add_argument(
     default="Sources",
 )
 parser.add_argument(
-    "--source_file",
+    "--sources_file",
     help="Path to CSV source file with skimming configurations",
     type=str,
     default="Data sources - Sources.csv",
@@ -58,15 +58,15 @@ parser.add_argument(
 
 
 # Script command actions --------------------------------------------
-def run_command(verbosity, output, sources, source_file, **options):
+def run_command(verbosity, output, sources, sources_file, **options):
 
     # Common operations
     logging.basicConfig(format=format, level=verbosity)
     logger.info("Program start")
 
     # Read source file
-    logger.info("Reading source file %s", source_file)
-    models = pd.read_csv(source_file, index_col=[0, 1])
+    logger.info("Reading source file %s", sources_file)
+    models = pd.read_csv(sources_file, index_col=[0, 1])
     logger.debug(f"Source file:\n{models.to_string()}")
 
     # Define pool processes

@@ -8,12 +8,12 @@
             "name": "CF Checks",
             "type": "python",
             "request": "launch",
-            "program": "scripts/cfchecks_output.py",
+            "program": "scripts/cfchecks.py",
             "env": {
                 "PYTHONPATH": "${workspaceFolder}"
             },
             "args": [
-                "--source_file=${input:projectFolder}/03sources/Data sources - Sources.csv",
+                "--sources_file=${input:projectFolder}/03sources/Data sources - Sources.csv",
                 "--sources=${input:projectFolder}",
                 "--output=${input:projectFolder}/Skimmed-dev",
                 "--verbosity=DEBUG",
@@ -28,7 +28,7 @@
                 "PYTHONPATH": "${workspaceFolder}"
             },
             "args": [
-                "--source_file=${input:projectFolder}/03sources/Data sources - Sources.csv",
+                "--sources_file=${input:projectFolder}/03sources/Data sources - Sources.csv",
                 "--sources=${input:projectFolder}",
                 "--output=${input:projectFolder}/Skimmed-dev",
                 "--verbosity=DEBUG",

@@ -16,49 +16,82 @@
 # udocker create --name=$UCONTAINER $DOCKER_IMAGE
 ##############################################################################
 
-# ----------------------------------------------------------------------------
-CONTAINER="o3skim"
-CONTAINER_STDOUT="$CONTAINER.out"
-CONTAINER_STDERR="$CONTAINER.err"
-
-# According to https://wiki.scc.kit.edu/hpc/index.php/ForHLR_-_Hardware_and_Architecture#LSDF_online_storage_2
-# we can use $LSDF environment setting
-SOURCES_FILE="${LSDF}/kit/imk-asf/projects/O3as/03sources/sources.yaml"
-SOURCES_FOLDER="${LSDF}/kit/imk-asf/projects/O3as"
-SKIMMED_FOLDER="${LSDF}/kit/imk-asf/projects/O3as/Skimmed"
-
-UDOCKER_OPTIONS="
-    --user=application \
-    --volume=${SOURCES_FILE}:/app/sources.yaml \
-    --volume=${SOURCES_FOLDER}:/app/Sources \
-    --volume=${SKIMMED_FOLDER}:/app/Skimmed \
-"
-
-CONTAINER_OPTIONS="
-    --verbosity=INFO \
-    --sources=Sources \
-    --output=Skimmed \
-"
-
-##### RUN THE JOB ############################################################
-echo"========================================================================"
-echo "=> udocker container: $CONTAINER"
-echo "=> Running on: $HOSTNAME"
+echo "========================================================================"
 echo "=> Account name: $SLURM_JOB_ACCOUNT"
+echo "=> Running on: $HOSTNAME"
 echo "=> With: Processes per node  == ${SLURM_JOB_CPUS_PER_NODE}"
 echo "=>       Nodes dedicated     == ${SLURM_JOB_NUM_NODES}"
 echo "=>       Memory per node     == ${SLURM_MEM_PER_NODE}"
 echo "=>       Processes dedicated == ${SLURM_NPROCS}"
 echo "=>       CPUs per task       == ${SLURM_CPUS_PER_TASK}"
 echo "=>       Tasks available     == ${SLURM_NTASKS}"
-echo "========================================================================"
+
+
+##### SCRIPT VARIABLES #######################################################
+SOURCES_FILE="${PWD}/o3as/03sources/sources.csv"
+SOURCES_FOLDER="${PWD}/o3as"
+SKIMMED_FOLDER="${PWD}/o3as/Skimmed-dev"
+
+
+##### CFCHECKS JOB ###########################################################
+CONTAINER="cfchecks:latest"
+CONTAINER_STDOUT="$CONTAINER.out"
+CONTAINER_STDERR="$CONTAINER.err"
+
+UDOCKER_OPTIONS="
+    --user=application \
+    --volume=${SOURCES_FILE}:/app/sources.csv \
+    --volume=${SOURCES_FOLDER}:/app/Sources \
+    --volume=${SKIMMED_FOLDER}:/app/Skimmed \
+"
+
+CONTAINER_OPTIONS="
+    --sources_file=sources.csv
+    --sources=Sources \
+    --output=Skimmed \
+    --verbosity=INFO \
+"
 
 #echo "Setting up F3 execmode"
 #udocker setup --execmode=F3 $UCONTAINER  # Setup another execmode, if needed
 EXECUTABLE="udocker run ${UDOCKER_OPTIONS} ${CONTAINER} ${CONTAINER_OPTIONS}"
 
+echo "========================================================================"
+echo "=> udocker container: $CONTAINER"
 echo $EXECUTABLE
-exec $EXECUTABLE \
+$EXECUTABLE \
     1>>${CONTAINER_STDOUT} \
     2>>${CONTAINER_STDERR}
-echo "Done with the script."
+echo "Checks job ended."
+
+
+##### SKIM JOB ###############################################################
+CONTAINER="tco3_zm:latest"
+CONTAINER_STDOUT="$CONTAINER.out"
+CONTAINER_STDERR="$CONTAINER.err"
+
+UDOCKER_OPTIONS="
+    --user=application \
+    --volume=${SOURCES_FILE}:/app/sources.csv \
+    --volume=${SOURCES_FOLDER}:/app/Sources \
+    --volume=${SKIMMED_FOLDER}:/app/Skimmed \
+"
+
+CONTAINER_OPTIONS="
+    --sources_file=sources.csv
+    --sources=Sources \
+    --output=Skimmed \
+    --verbosity=INFO \
+"
+
+#echo "Setting up F3 execmode"
+#udocker setup --execmode=F3 $UCONTAINER  # Setup another execmode, if needed
+EXECUTABLE="udocker run ${UDOCKER_OPTIONS} ${CONTAINER} ${CONTAINER_OPTIONS}"
+
+echo "========================================================================"
+echo "=> udocker container: $CONTAINER"
+echo $EXECUTABLE
+$EXECUTABLE \
+    1>>${CONTAINER_STDOUT} \
+    2>>${CONTAINER_STDERR}
+echo "Skim job ended."

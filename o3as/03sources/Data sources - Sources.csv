@@ -1,13 +1,12 @@
 source,model,parameter,Conventions,load_function,plot_color,plot_linestyle,plot_marker,paths
-CCMI-1,ACCESS_ACCESS-CCM-refC2,tco3_zm,CF-1.4,ccmi,purple,solid,o,CCMI-1_ACCESS-CCM/*.nc
+CCMI-1,ACCESS_ACCESS-CCM-refC2,tco3_zm,CF-1.4,ccmi,purple,solid,o,CCMI-1_ACCESS/*.nc
 CCMI-1,CCCma_CMAM-refC2,tco3_zm,CF-1.4,ccmi,red,solid,x,CCMI-1_CCCma/*.nc
 CCMI-1,CESM1-CAM4Chem_refC1_r1i1p1,tco3_zm,CF-1.4,ccmi,darkorange,dashed,d,CCMI-1_CESM1/*.nc
-CCMI-1,CHASER-MIROC-ESM-refC2,tco3_zm,CF-1.4,ccmi,dimgray,dashed,o,CCMI-1_CHASER-MIROC-ESM/*.nc
-CCMI-1,CNRM-CERFACS_CNRM-CM5-3-refC2,tco3_zm,CF-1.4,ccmi,darkcyan,dotted,o,CCMI-1_CNRM-CERFACS/*.nc
+CCMI-1,CHASER-MIROC-ESM-refC2,tco3_zm,CF-1.4,ccmi,dimgray,dashed,o,CCMI-1_CHASER/*.nc
+CCMI-1,CNRM-CERFACS_CNRM-CM5-3-refC2,tco3_zm,CF-1.4,ccmi,darkcyan,dotted,o,CCMI-1_CNRM/*.nc
 CCMI-1,ETH-PMOD_SOCOL3-refC2,tco3_zm,CF-1.4,ccmi,darkkhaki,solid,d,CCMI-1_ETH-PMOD/*.nc
 CCMI-1,GSFC_GEOSCCM-refC2,tco3_zm,CF-1.4,ccmi,olive,solid,*,CCMI-1_GSFC/*.nc
 CCMI-1,IPSL_IPSL-refC2,tco3_zm,CF-1.6,ccmi,darkblue,solid,*,CCMI-1_IPSL/*.nc
-CCMI-1,IPSL_IPSL-senC2rcp85,vmro3_zm,CF-1.6,ccmi,darkblue,solid,*,CCMI-1_IPSL/*.nc
 CCMI-1,MESSy_EMAC-L47MA-refC2,tco3_zm,CF-1.4,ccmi,blue,solid,s,CCMI-1_MESSy/*.nc
 CCMI-1,MOHC_HadGEM3-ES-refC2,tco3_zm,CF-1.4,ccmi,purple,dotted,x,CCMI-1_MOHC/*.nc
 CCMI-1,MRI_ESM1r1-refC2,tco3_zm,CF-1.4,ccmi,orange,dotted,o,CCMI-1_MRI/*.nc
@@ -16,5 +15,8 @@ CCMI-1,NIWA_NIWA-UKCA-refC2,tco3_zm,CF-1.4,ccmi,purple,dashed,p,CCMI-1_NIWA/*.nc
 CCMI-1,U-CAMBRIDGE_UMUKCA-UCAM-refC2,tco3_zm,CF-1.5,ccmi,purple,dashdot,*,CCMI-1_U-CAMBRIDGE/*.nc
 CCMI-1,U-LAQUILA_CCM-refC2,tco3_zm,CF-1.4,ccmi,sienna,dashed,d,CCMI-1_U-LAQUILA/*.nc
 CCMI-1,U-LEEDS_UMSLIMCAT-refC2,tco3_zm,CF-1.4,ccmi,lime,solid,*,CCMI-1_U-LEEDS/*.nc
+ECMWF,C3S_ERA5,tco3_zm,CF-1.6,ecmwf,nan,nan,nan,ECMWF_C3S/*.nc
+ECMWF,ECMWF_ERA-Interim,tco3_zm,CF-1.0,ecmwf,nan,nan,nan,ECMWF_ECMWF/*.nc
+ESACCI,C3S_MSR-ASSIM-ozone,tco3_zm,Undefined,esacci,nan,nan,nan,ESACCI_C3S/*.nc
 ESACCI,DLR-merged-SAT-ozone,tco3_zm,CF-1.5,esacci,darkgreen,solid,s,ESACCI_DLR/*.nc
 SBUV,GSFC_merged-SAT-ozone,tco3_zm,NA,sbuv,black,solid,^,SBUV_GSFC/*.txt

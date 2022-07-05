@@ -5,7 +5,7 @@
 #SBATCH --ntasks=4
 #SBATCH --cpus-per-task=10
 #SBATCH --time=01:00:00
-#SBATCH --mem=30gb
+#SBATCH --mem=50gb
 #SBATCH --partition=cpuonly
 
 ##############################################################################

@@ -70,7 +70,7 @@ CCMI-1,NIES_CCSRNIES-MIROC3.2-refC2,tco3_zm,CF-1.4,load_tco3,ccmi,brown,dotted,s
 CCMI-1,NIES_CCSRNIES-MIROC3.2-senC2fCH4,tco3_zm,CF-1.4,load_tco3,ccmi,brown,dotted,s,Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2fCH4/mon/atmos/monthly/r1i1p1/v3/toz/*.nc
 CCMI-1,NIES_CCSRNIES-MIROC3.2-senC2fGHG,tco3_zm,CF-1.4,load_tco3,ccmi,brown,dotted,s,Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2fGHG/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
 CCMI-1,NIES_CCSRNIES-MIROC3.2-senC2fN2O,tco3_zm,CF-1.4,load_tco3,ccmi,brown,dotted,s,Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2fN2O/mon/atmos/monthly/r1i1p1/v3/toz/*.nc
-CCMI-1,NIES_CCSRNIES-MIROC3.2-senC2fODS,tco3_zm,CF-1.4,load_tco3,ccmi,brown,dotted,s,Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2fODS/mon/atmos/monthly/r1i1p1/v1/toz/*.nc 
+CCMI-1,NIES_CCSRNIES-MIROC3.2-senC2fODS,tco3_zm,CF-1.4,load_tco3,ccmi,brown,dotted,s,Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2fODS/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
 CCMI-1,NIES_CCSRNIES-MIROC3.2-senC2fODS2000,tco3_zm,CF-1.4,load_tco3,ccmi,brown,dotted,s,Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2fODS2000/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
 CCMI-1,NIES_CCSRNIES-MIROC3.2-senC2rcp26,tco3_zm,CF-1.4,load_tco3,ccmi,brown,dotted,s,Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2rcp26/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
 CCMI-1,NIES_CCSRNIES-MIROC3.2-senC2rcp45,tco3_zm,CF-1.4,load_tco3,ccmi,brown,dotted,s,Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/NIES/CCSRNIES-MIROC3.2/senC2rcp45/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
@@ -99,8 +99,8 @@ CCMI-1,U-LEEDS_UMSLIMCAT-senC2fODS,tco3_zm,CF-1.4,load_tco3,ccmi,lime,solid,*,Cc
 CCMI-1,U-LEEDS_UMSLIMCAT-senC2fODS2000,tco3_zm,CF-1.4,load_tco3,ccmi,lime,solid,*,Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LEEDS/UMSLIMCAT/senC2fODS2000/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
 CCMI-1,U-LEEDS_UMSLIMCAT-senC2rcp45,tco3_zm,CF-1.4,load_tco3,ccmi,lime,solid,*,Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LEEDS/UMSLIMCAT/senC2rcp45/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
 CCMI-1,U-LEEDS_UMSLIMCAT-senC2rcp85,tco3_zm,CF-1.4,load_tco3,ccmi,lime,solid,*,Ccmi/ftp.ceda.ac.uk/badc/wcrp-ccmi/data/CCMI-1/output/U-LEEDS/UMSLIMCAT/senC2rcp85/mon/atmos/monthly/r1i1p1/v1/toz/*.nc
-ECMWF,C3S_ERA5,tco3_zm,CF-1.6,load_tco3,ecmwf,black,solid,s,Ecmwf/Era5/era5_tco3_*.nc 
-ECMWF,ECMWF_ERA-Interim,tco3_zm,CF-1.0,load_tco3,ecmwf,black,solid,s,Ecmwf/Erai/era-int_sfc_*.nc 
+ECMWF,C3S_ERA5,tco3_zm,CF-1.6,load_tco3,ecmwf,black,solid,s,Ecmwf/Era5/era5_tco3_*.nc
+ECMWF,ECMWF_ERA-Interim,tco3_zm,CF-1.0,load_tco3,ecmwf,black,solid,s,Ecmwf/Erai/era-int_sfc_*.nc
 ESACCI,C3S_MSR-ASSIM-ozone,tco3_zm,Undefined,load_tco3,esacci,black,solid,s,Esacci/CCI_ozone/??????-C3S-L4_OZONE-O3_PRODUCTS-MSR-ASSIM-ALG-MONTHLY-v0023.nc
 ESACCI,DLR_merged-SAT-ozone,tco3_zm,CF-1.5,load_tco3,esacci,darkgreen,solid,s,Esacci/ozone/Total_Columns/L3/MERGED/ESACCI-OZONE-L3S-TC-MERGED-DLR_1M-????????-fv0100.nc
 SBUV,GSFC_merged-SAT-ozone,tco3_zm,NA,load_tco3,sbuv,black,solid,^,Sbuv/sbuv.v86.mod_v10.70-18.za.txt

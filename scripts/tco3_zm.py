@@ -7,7 +7,6 @@ import os
 import sys
 from pathlib import Path
 
-import dask
 import o3skim
 import o3skim.loads
 import pandas as pd
@@ -72,13 +71,11 @@ def run_command(verbosity, output, sources, sources_file, **options):
 
     # Define pool processes
     logger.info("Computing 'tco3_zm' skimming pool of models")
-    dask.compute(
-        *[
-            dask.delayed(worker)(index, sources, output, **row)
-            for index, row in models.iterrows()
-            if row["parameter"] == "tco3_zm"
-        ]
-    )
+    [
+        worker(index, sources, output, **row)
+        for index, row in models.iterrows()
+        if row["parameter"] == "tco3_zm"
+    ]
 
     # End of program
     logger.info("End of program")
@@ -102,7 +99,7 @@ def worker(index, sources, output, load_function=None, paths=None, **_):
 
     # Variable name standardization
     logger.debug(f"Renaming var 'tco3' to 'tco3_zm'")
-    skimmed = skimmed.cf.rename({'tco3': "tco3_zm"})
+    skimmed = skimmed.cf.rename({"tco3": "tco3_zm"})
 
     # Skimming file saving
     logger.info(f"Saving skimmed dataset at {output_folder}")

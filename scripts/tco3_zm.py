@@ -8,7 +8,6 @@ import sys
 from pathlib import Path
 
 import o3skim
-import o3skim.loads
 import pandas as pd
 
 
@@ -86,15 +85,17 @@ def worker(index, sources, output, load_function=None, paths=None, **_):
     logger = logging.getLogger(__name__)
     logger = WorkLogger(logger, {"source": index[0], "model": index[1]})
 
-    # Common operations
-    if not load_function:
-        raise ValueError("Undefined model load_function in kwargs")
-    output_folder = Path(f"{output}/{index[0]}_{index[1]}")
+    # Output folder creation
+    path, model = f"{sources}/{paths}", f"{index[0]}_{index[1]}"    
+    output_folder = Path(f"{output}/{model}")
     os.makedirs(Path(output_folder), exist_ok=True)
 
     # Loading and skimming of dataset
     logger.info(f"Skimming {paths} with {load_function}")
-    dataset = o3skim.loads.__dict__[load_function](f"{sources}/{paths}")
+    if load_function not in ["load_tco3"]:
+        logger.error("Undefined load_function in kwargs")
+        return None
+    dataset = o3skim.__dict__[load_function](path, model)
     skimmed = o3skim.lon_mean(dataset)
 
     # Variable name standardization

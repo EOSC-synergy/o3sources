@@ -81,7 +81,14 @@ def run_command(verbosity, output, sources, sources_file, **options):
 
 
 # Worker actions ----------------------------------------------------
-def worker(index, sources, output, load_function=None, paths=None, **_):
+def worker(*args, **kwargs):
+    try:
+        worker_run(*args, **kwargs)
+    except Exception as err:
+        logger.error(err)
+
+
+def worker_run(index, sources, output, load_function=None, paths=None, **_):
     logger = logging.getLogger(__name__)
     logger = WorkLogger(logger, {"source": index[0], "model": index[1]})
 
@@ -93,8 +100,7 @@ def worker(index, sources, output, load_function=None, paths=None, **_):
     # Loading and skimming of dataset
     logger.info(f"Skimming {paths} with {load_function}")
     if load_function not in ["load_tco3"]:
-        logger.error("Undefined load_function in kwargs")
-        return None
+        raise ValueError("Undefined load_function in kwargs")
     dataset = o3skim.__dict__[load_function](path, model)
     skimmed = o3skim.lon_mean(dataset)
 

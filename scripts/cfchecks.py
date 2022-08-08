@@ -9,7 +9,6 @@ import subprocess
 import sys
 from pathlib import Path
 
-import dask
 import pandas as pd
 
 # Logger definition -------------------------------------------------
@@ -71,12 +70,10 @@ def run_command(verbosity, output, sources, sources_file, **options):
 
     # Define pool processes
     logger.info("Computing 'tco3_zm' skimming pool of models")
-    checks_list = dask.compute(
-        *[
-            dask.delayed(worker)(index, sources, output, **row)
-            for index, row in models.iterrows()
-        ]
-    )
+    checks_list = [
+        worker(index, sources, output, **model_info)
+        for index, model_info in models.iterrows()
+    ]
 
     # Saving produced files into a summary output file
     logging.info("Saving info to %s", output)

@@ -2,10 +2,10 @@
 #SBATCH --job-name=o3sources
 #SBATCH --output="parprog_hybrid_%j.out"
 #SBATCH --constraint=LSDF
-#SBATCH --ntasks=4
+#SBATCH --ntasks=1
 #SBATCH --cpus-per-task=10
-#SBATCH --time=01:00:00
-#SBATCH --mem=50gb
+#SBATCH --time=10:00:00
+#SBATCH --mem=30gb
 #SBATCH --partition=cpuonly
 
 ##############################################################################
@@ -34,7 +34,7 @@ SKIMMED_FOLDER="${PWD}/o3as/Skimmed-dev"
 
 
 ##### CFCHECKS JOB ###########################################################
-CONTAINER="cfchecks:latest"
+CONTAINER="cfchecks"
 CONTAINER_STDOUT="$CONTAINER.out"
 CONTAINER_STDERR="$CONTAINER.err"
 
@@ -66,7 +66,7 @@ echo "Checks job ended."
 
 
 ##### SKIM JOB ###############################################################
-CONTAINER="tco3_zm:latest"
+CONTAINER="tco3_zm"
 CONTAINER_STDOUT="$CONTAINER.out"
 CONTAINER_STDERR="$CONTAINER.err"
 

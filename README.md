@@ -73,6 +73,11 @@ Successfully built ...
 Successfully tagged tco3_zm:latest
 ```
 
+You can build an image that executes each individual script by using targets:
+ - `docker build --target o3sources -t o3sources:latest .`
+ - `docker build --target cfchecks -t cfchecks:latest .`
+ - `docker build --target tco3_zm -t tco3_zm:latest .`
+
 
 ## Run using udocker <a name = "deployment"></a>
 To deploy the the application using __udocker__ at the __Runtime machine__ you need:

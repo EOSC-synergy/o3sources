@@ -102,11 +102,10 @@ def worker_run(index, sources, output, load_function=None, paths=None, **_):
     if load_function not in ["load_tco3"]:
         raise ValueError("Undefined load_function in kwargs")
     dataset = o3skim.__dict__[load_function](path, model)
-    skimmed = o3skim.lon_mean(dataset)
 
-    # Variable name standardization
-    logger.debug(f"Renaming var 'tco3' to 'tco3_zm'")
-    skimmed = skimmed.cf.rename({"tco3": "tco3_zm"})
+    # Dataset skimming reduction
+    logger.debug(f"Reducing var 'tco3' to 'tco3_zm'")
+    skimmed = o3skim.lon_mean(dataset)
 
     # Skimming file saving
     logger.info(f"Saving skimmed dataset at {output_folder}")

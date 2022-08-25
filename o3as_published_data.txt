@@ -3,7 +3,8 @@
 # weblink, path to the data inside the archive
 
 # CCMI-1 skimmed dataset (models):
-https://bwsyncandshare.kit.edu/s/Zf2BA7XyF5CS7QY/download/ccmi-1-skimmed.tar.gz,/
+https://bwsyncandshare.kit.edu/s/Ck7YX32LxqpH2in/download/Skimmed-CCMI-1.test.tar.gz,/Skimmed-CCMI-1.test
+#https://bwsyncandshare.kit.edu/s/Zf2BA7XyF5CS7QY/download/ccmi-1-skimmed.tar.gz,/
 #(radar link)https://www.radar-service.eu/radar/api/datasets/oCryxOVzzVEAgnoz/download,/10.35097-675/data/dataset/
 
 # ESACCI_DLR (observed data):

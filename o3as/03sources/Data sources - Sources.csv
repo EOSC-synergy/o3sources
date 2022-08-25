@@ -1,5 +1,6 @@
 source,model,parameter,Conventions,load_function,plot_color,plot_linestyle,plot_marker,paths
 CCMI-1,ACCESS_ACCESS-CCM-refC2,tco3_zm,CF-1.4,load_tco3,purple,solid,o,CCMI-1_ACCESS/*.nc
+CCMI-1,ACCESS_ACCESS-CCM-refC2,vmro3_zm,CF-1.4,load_zmo3,purple,solid,o,CCMI-1_ACCESS/*.nc
 CCMI-1,CCCma_CMAM-refC2,tco3_zm,CF-1.4,load_tco3,red,solid,x,CCMI-1_CCCma/*.nc
 CCMI-1,CESM1-CAM4Chem_refC1_r1i1p1,tco3_zm,CF-1.4,load_tco3,darkorange,dashed,d,CCMI-1_CESM1/*.nc
 CCMI-1,CHASER-MIROC-ESM-refC2,tco3_zm,CF-1.4,load_tco3,dimgray,dashed,o,CCMI-1_CHASER/*.nc

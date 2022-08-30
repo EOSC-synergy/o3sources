@@ -68,6 +68,11 @@ ENTRYPOINT ["/app/scripts/cfchecks.py"]
 FROM build as tco3_zm
 ENTRYPOINT ["/app/scripts/tco3_zm.py"]
 
+# target stage to build vmro3_zm image
+# docker build --target vmro3_zm -t vmro3_zm:<tag> .
+FROM build as vmro3_zm
+ENTRYPOINT ["/app/scripts/vmro3_zm.py"]
+
 # Target stage for simple running
 # docker build --target tco3_zm -t tco3_zm:<tag> .
 FROM build as o3sources

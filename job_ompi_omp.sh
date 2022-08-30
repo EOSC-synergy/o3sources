@@ -32,12 +32,6 @@ SOURCES_FILE="${PWD}/o3as/03sources/sources.csv"
 SOURCES_FOLDER="${PWD}/o3as"
 SKIMMED_FOLDER="${PWD}/o3as/Skimmed-dev"
 
-
-##### CFCHECKS JOB ###########################################################
-CONTAINER="cfchecks"
-CONTAINER_STDOUT="$CONTAINER.out"
-CONTAINER_STDERR="$CONTAINER.err"
-
 UDOCKER_OPTIONS="
     --user=application \
     --volume=${SOURCES_FILE}:/app/sources.csv \
@@ -51,6 +45,12 @@ CONTAINER_OPTIONS="
     --output=Skimmed \
     --verbosity=INFO \
 "
+
+
+##### SKIM JOB - CFCHECKS ####################################################
+CONTAINER="cfchecks"
+CONTAINER_STDOUT="$CONTAINER.out"
+CONTAINER_STDERR="$CONTAINER.err"
 
 #echo "Setting up F3 execmode"
 #udocker setup --execmode=F3 $UCONTAINER  # Setup another execmode, if needed
@@ -65,24 +65,10 @@ $EXECUTABLE \
 echo "Checks job ended."
 
 
-##### SKIM JOB ###############################################################
+##### SKIM JOB - TCO3 ########################################################
 CONTAINER="tco3_zm"
 CONTAINER_STDOUT="$CONTAINER.out"
 CONTAINER_STDERR="$CONTAINER.err"
-
-UDOCKER_OPTIONS="
-    --user=application \
-    --volume=${SOURCES_FILE}:/app/sources.csv \
-    --volume=${SOURCES_FOLDER}:/app/Sources \
-    --volume=${SKIMMED_FOLDER}:/app/Skimmed \
-"
-
-CONTAINER_OPTIONS="
-    --sources_file=sources.csv
-    --sources=Sources \
-    --output=Skimmed \
-    --verbosity=INFO \
-"
 
 #echo "Setting up F3 execmode"
 #udocker setup --execmode=F3 $UCONTAINER  # Setup another execmode, if needed
@@ -94,4 +80,22 @@ echo $EXECUTABLE
 $EXECUTABLE \
     1>>${CONTAINER_STDOUT} \
     2>>${CONTAINER_STDERR}
-echo "Skim job ended."
+echo "Skim job tco3 ended."
+
+
+##### SKIM JOB - VMRO3 #######################################################
+CONTAINER="vmro3_zm"
+CONTAINER_STDOUT="$CONTAINER.out"
+CONTAINER_STDERR="$CONTAINER.err"
+
+#echo "Setting up F3 execmode"
+#udocker setup --execmode=F3 $UCONTAINER  # Setup another execmode, if needed
+EXECUTABLE="udocker run ${UDOCKER_OPTIONS} ${CONTAINER} ${CONTAINER_OPTIONS}"
+
+echo "========================================================================"
+echo "=> udocker container: $CONTAINER"
+echo $EXECUTABLE
+$EXECUTABLE \
+    1>>${CONTAINER_STDOUT} \
+    2>>${CONTAINER_STDERR}
+echo "Skim job vmro3 ended."

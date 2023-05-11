@@ -8,7 +8,9 @@ https://bwsyncandshare.kit.edu/s/Ck7YX32LxqpH2in/download/Skimmed-CCMI-1.test.ta
 #(radar link)https://www.radar-service.eu/radar/api/datasets/oCryxOVzzVEAgnoz/download,/10.35097-675/data/dataset/
 
 # ESACCI_DLR (observed data):
-https://bwsyncandshare.kit.edu/s/b4qicY8goPcxYtf/download/esacci_dlr-skimmed.tar.gz,,
+#https://bwsyncandshare.kit.edu/s/b4qicY8goPcxYtf/download/esacci_dlr-skimmed.tar.gz,,
+https://radar-service.eu/radar/api/datasets/wBIQkrEZTKRIkfgu/download,/10.35097-832/data/dataset/
 
 # SBUV combined mearurement (observed data)
-https://bwsyncandshare.kit.edu/s/Ztm59zTkDfQ7NJC/download/sbuv_gsfc-skimmed.tar.gz,,
+#https://bwsyncandshare.kit.edu/s/Ztm59zTkDfQ7NJC/download/sbuv_gsfc-skimmed.tar.gz,,
+https://radar-service.eu/radar/api/datasets/UYlPWnERnfGEgBoG/download,/10.35097-831/data/dataset/

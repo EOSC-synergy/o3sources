@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Script to perform tco3 skimming on the o3as database.
+"""Script to perform vmro3 skimming on the o3as database.
 """
 import argparse
 import logging
@@ -69,11 +69,11 @@ def run_command(verbosity, output, sources, sources_file, **options):
     logger.debug(f"Source file:\n{models.to_string()}")
 
     # Define pool processes
-    logger.info("Computing 'tco3_zm' skimming pool of models")
+    logger.info("Computing 'vmro3_zm' skimming pool of models")
     [
         worker(index, sources, output, **row)
         for index, row in models.iterrows()
-        if row["parameter"] == "tco3_zm"
+        if row["parameter"] == "vmro3_zm"
     ]
 
     # End of program
@@ -99,17 +99,20 @@ def worker_run(index, sources, output, load_function=None, paths=None, **_):
 
     # Loading and skimming of dataset
     logger.info(f"Skimming {paths} with {load_function}")
-    if load_function not in ["load_tco3"]:
+    if load_function not in ["load_vmro3", "load_zmo3"]:
         raise ValueError("Undefined load_function in kwargs")
     dataset = o3skim.__dict__[load_function](path, model)
 
     # Dataset skimming reduction
-    logger.debug(f"Reducing var 'tco3' to 'tco3_zm'")
-    skimmed = o3skim.lon_mean(dataset)
+    if load_function == "load_vmro3":
+        logger.debug(f"Reducing var 'vmro3' to 'vmro3_zm'")
+        skimmed = o3skim.lon_mean(dataset)
+    else:
+        skimmed = dataset
 
     # Skimming file saving
     logger.info(f"Saving skimmed dataset at {output_folder}")
-    skimmed.to_netcdf(f"{output_folder}/tco3_zm.nc")
+    skimmed.to_netcdf(f"{output_folder}/vmro3_zm.nc")
 
     # End of program
     return None

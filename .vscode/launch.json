@@ -20,10 +20,25 @@
             ]
         },
         { // TCO3 Data Skimming Script
-            "name": "Skim data",
+            "name": "Skim tco3 data",
             "type": "python",
             "request": "launch",
             "program": "scripts/tco3_zm.py",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "args": [
+                "--sources_file=${input:projectFolder}/03sources/sources.csv",
+                "--sources=${input:projectFolder}",
+                "--output=${input:projectFolder}/Skimmed-dev",
+                "--verbosity=DEBUG",
+            ]
+        },
+        { // VMRO3 Data Skimming Script
+            "name": "Skim vmro3 data",
+            "type": "python",
+            "request": "launch",
+            "program": "scripts/vmro3_zm.py",
             "env": {
                 "PYTHONPATH": "${workspaceFolder}"
             },

@@ -40,7 +40,7 @@ To use the container, you need the following systems and container technologies:
 ## Built using docker <a name = "build"></a>
 Download the repository at the __Build machine__ using git.
 ```sh
-$ git clone git@git.scc.kit.edu:synergy.o3as/o3sources.git
+$ git clone git@codebase.helmholtz.cloud:m-team/o3as/o3sources.git
 Cloning into 'o3sources'...
 ...
 ```
